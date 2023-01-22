@@ -1,26 +1,17 @@
 <script>
 //TODO: optimize icons
 import TypingList from "./TypingList.vue";
+import SocialLinks from "./SocialLinks.vue";
 
-const SocialLink = (name, link, icon) => {
-  return {
-    name: name, link: link, icon: icon
-  };
-}
+
 
 export default {
   name: 'AppHero',
-  components: {TypingList},
+  components: {SocialLinks, TypingList},
   data() {
     return {
       name: 'Pavan Pitiwaduge',
-      titles: ['Engineering student', 'Developer', 'Freelancer'],
-      socialLinks: [
-        SocialLink('twitter', 'https://twitter.com/RajivaPavan', 'bx bxl-twitter'),
-        SocialLink('facebook', 'https://www.facebook.com/pavan.pitiwaduge', 'bx bxl-facebook'),
-        SocialLink('instagram', 'https://www.instagram.com/_pavan.0001/', 'bx bxl-instagram'),
-        SocialLink('linkedin', 'https://www.linkedin.com/in/pavan-pitiwaduge/', 'bx bxl-linkedin'),
-      ]
+      titles: ['Engineering student', 'Developer', 'Freelancer']
     }
   },
   methods: {
@@ -38,11 +29,7 @@ export default {
       <p>I'm an
         <TypingList :words="getTitles()" :speed="100"/>
       </p>
-      <div class="social-links">
-        <a v-for="social in socialLinks" :class="social.name" :href="social.link" target="_blank">
-          <i :class="social.icon"></i>
-        </a>
-      </div>
+      <SocialLinks/>
     </div>
   </section>
 </template>
@@ -91,11 +78,7 @@ export default {
   letter-spacing: 1px;
 }
 
-#hero .social-links {
-  margin-top: 30px;
-}
-
-#hero .social-links a {
+/deep/ .social-links a {
   font-size: 24px;
   display: inline-block;
   color: #45505b;
@@ -104,7 +87,7 @@ export default {
   transition: 0.3s;
 }
 
-#hero .social-links a:hover {
+/deep/ .social-links a:hover {
   color: #0563bb;
 }
 
