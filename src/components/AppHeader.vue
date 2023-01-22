@@ -16,7 +16,26 @@
   </header>
 </template>
 <script>
+
+
 export default {
-  name: 'AppHeader'
+  name: 'AppHeader',
+  mounted() {
+    let navbarlinks = this.$el.querySelectorAll('#navbar .scrollto')
+    const navbarlinksActive = () => {
+      let position = window.scrollY + 200
+      navbarlinks.forEach(navbarlink => {
+        if (!navbarlink.hash) return
+        let section = document.querySelector(navbarlink.hash)
+        if (!section) return
+        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+          navbarlink.classList.add('active')
+        } else {
+          navbarlink.classList.remove('active')
+        }
+      })
+    }
+    document.addEventListener('scroll', navbarlinksActive)
+  }
 }
 </script>
