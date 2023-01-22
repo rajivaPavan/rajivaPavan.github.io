@@ -34,13 +34,13 @@ export default {
     return {
       testimonials: [
         {
-          img: 'src/assets/img/testimonials/testimonials-1.jpg',
+          img: '../assets/img/testimonials/testimonials-1.jpg',
           name: 'Saul Goodman',
           title: 'Ceo & Founder',
           text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.'
         },
         {
-          img: 'src/assets/img/testimonials/testimonials-2.jpg',
+          img: '../assets/img/testimonials/testimonials-2.jpg',
           name: 'Jane Smith',
           title: 'Designer',
           text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.'
