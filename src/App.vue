@@ -27,16 +27,8 @@ export default {
     currentView() {
       const currentPath = this.currentPath.slice(1); //remove the leading slash
 
-      if(currentPath.startsWith('#')){
-        //scroll to section with id
-        const section = document.getElementById(currentPath.slice(1)); //remove the leading hash
-        if(section){
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-
-      //scroll to page top before changing the view
-      window.scrollTo({ top: 0, behavior: 'auto' });
+      // scroll to page top before changing the view
+      // window.scrollTo({ top: 0, behavior: 'auto' });
 
       return routes["/" + currentPath] || Page404;
     },
@@ -46,6 +38,7 @@ export default {
     this.$watch(
         () => getCurrentPath(),
         (newValue) => {
+          if(newValue !== this.currentPath)
            this.currentPath = newValue;
         }
     );
