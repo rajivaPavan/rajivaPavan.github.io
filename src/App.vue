@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Page404 from "./pages/Page404.vue";
+import PageHome from "./pages/PageHome.vue";
 
 const routes = {
-  '/': HelloWorld
+  '/': PageHome
 }
 
 export default {
@@ -17,7 +17,7 @@ export default {
     }
   },
   components: {
-    HelloWorld
+    PageHome
   },
   computed:{
     currentView() {
