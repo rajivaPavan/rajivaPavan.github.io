@@ -3,38 +3,53 @@
 
 export default {
   name: 'AppHeader',
+  data() {
+    return {
+      //sections : name, hash, icon, active
+      sections: [
+        {name: 'Home', hash: '#hero', icon: 'bx bx-home', active: true},
+        // {name: 'About', hash: '#about', icon: 'bx bx-user', active: false},
+        {name: 'Portfolio', hash: '#portfolio', icon: 'bx bx-book-content', active: false},
+        {name: 'Services', hash: '#services', icon: 'bx bx-server', active: false},
+        {name: 'Resume', hash: '#resume', icon: 'bx bx-file-blank', active: false},
+        {name: 'Contact', hash: '#contact', icon: 'bx bx-envelope', active: false},
+      ]
+    }
+  },
+  computed: {
+    sections(){
+      return this.sections;
+    }
+  },
   mounted() {
-    let navbarlinks = this.$el.querySelectorAll('#navbar .scrollto')
-    const navbarlinksActive = () => {
+    let navbarLinks = this.$el.querySelectorAll('.nav-link')
+    const navbarLinksActive = () => {
       let position = window.scrollY + 200
-      navbarlinks.forEach(navbarlink => {
-        if (!navbarlink.hash) return
-        let section = document.querySelector(navbarlink.hash)
+      navbarLinks.forEach(navbarLink => {
+        if (!navbarLink.hash) return
+        let section = document.querySelector(navbarLink.hash)
         if (!section) return
         if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-          navbarlink.classList.add('active')
+          navbarLink.classList.add('active')
         } else {
-          navbarlink.classList.remove('active')
+          navbarLink.classList.remove('active')
         }
       })
     }
-    document.addEventListener('scroll', navbarlinksActive)
+    document.addEventListener('scroll', navbarLinksActive)
   }
 }
 </script>
 
 <template>
   <header id="header" class="d-flex flex-column justify-content-center">
-
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a>
+        <li v-for="section in sections" >
+          <a :href="section.hash" class="nav-link" :class="section.active ? 'active' :''">
+            <i :class="section.icon"></i> <span>{{ section.name }}</span>
+          </a>
         </li>
-        <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
       </ul>
     </nav><!-- .nav-menu -->
 

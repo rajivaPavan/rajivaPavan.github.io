@@ -37,9 +37,17 @@ export default {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../../src/assets/img/hero-bg.jpg") top right no-repeat;
+  background: url("../assets/img/hero-bg.jpg") top right no-repeat;
   background-size: cover;
   position: relative;
+}
+
+/*for mobile screen*/
+@media (max-width: 992px) {
+  #hero {
+    background: url("../assets/img/hero-bg-mobile.jpg") center center no-repeat;
+    background-size: cover;
+  }
 }
 
 @media (min-width: 992px) {

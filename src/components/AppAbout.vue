@@ -1,3 +1,36 @@
+<script>
+export default {
+  name: 'AppAbout',
+  data() {
+    return {
+      bioDataTable:{
+        columnCount: 2,
+        columnNumbers:[]
+      },
+      bioDataList: [
+        { name: 'Age', value: 21 },
+        { name: 'Email', value: 'pavanpitiwaduge@outlook.com' },
+        { name: 'Degree', value: 'BSc in Computer Science Engineering' },
+        { name: 'Freelance', value: 'Available' }
+      ]
+    }
+  },
+  methods: {
+    //get every nth element from bioDataList starting from given index
+    getBioDataList(index, nth) {
+      return this.bioDataList.filter((item, i) => i >= index && i % nth === 0);
+    },
+    getColumnNumbers(){
+      //return an array of numbers from 1 to columnCount
+      return Array.from(Array(this.bioDataTable.columnCount).keys());
+    }
+  },
+  mounted(){
+    // fill columnNumbers array with numbers from 1 to columnCount
+    this.bioDataTable.columnNumbers = this.getColumnNumbers();
+  }
+}
+</script>
 <template>
   <section id="about" class="about">
     <div class="container" data-aos="fade-up">
@@ -23,18 +56,8 @@
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong> <span>email@example.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                <li v-for="bioData in bioDataList">
+                  <i class="bi bi-chevron-right"></i> <strong>{{bioData.name}}: </strong> <span>{{ bioData.value }}</span></li>
               </ul>
             </div>
           </div>

@@ -10,29 +10,13 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <AppAbout/><!-- End About Section -->
+    <AppPortfolio/>
 
-    <!-- ======= Facts Section ======= -->
-    <AppFacts/><!-- End Facts Section -->
+    <AppServices/>
 
-    <!-- ======= Skills Section ======= -->
-    <AppSkills/><!-- End Skills Section -->
+    <AppResume/>
 
-    <!-- ======= Resume Section ======= -->
-    <AppResume/><!-- End Resume Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <AppPortfolio/><!-- End Portfolio Section -->
-
-    <!-- ======= Services Section ======= -->
-    <AppServices/><!-- End Services Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <AppTestimonials/><!-- End Testimonials Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <AppContact/><!-- End Contact Section -->
+    <AppContact/>
 
   </main><!-- End #main -->
 
