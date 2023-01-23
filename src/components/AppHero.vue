@@ -11,13 +11,12 @@ export default {
   data() {
     return {
       name: 'Pavan Pitiwaduge',
-      titles: ['Engineering student', 'Developer', 'Freelancer']
+      titles: ['an Engineering student', 'a Developer', 'a Freelancer']
     }
   },
   methods: {
     getTitles() {
-      //combine the titles by comma
-      return this.titles.join(', ');
+      return this.titles;
     }
   }
 }
@@ -26,13 +25,14 @@ export default {
   <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
       <h1>{{ this.name }}</h1>
-      <p>I'm an
-        <TypingList :words="getTitles()" :speed="100"/>
+      <p class="mb-4">I'm
+        <TypingList :words="getTitles()"/>
       </p>
       <SocialLinks/>
     </div>
   </section>
 </template>
+
 <style scoped>
 #hero {
   width: 100%;
@@ -73,12 +73,12 @@ export default {
   font-family: "Poppins", sans-serif;
 }
 
-#hero p span {
+:deep(#hero p span) {
   color: #0563bb;
   letter-spacing: 1px;
 }
 
-/deep/ .social-links a {
+:deep(.social-links a) {
   font-size: 24px;
   display: inline-block;
   color: #45505b;
@@ -87,7 +87,7 @@ export default {
   transition: 0.3s;
 }
 
-/deep/ .social-links a:hover {
+:deep(.social-links a:hover) {
   color: #0563bb;
 }
 

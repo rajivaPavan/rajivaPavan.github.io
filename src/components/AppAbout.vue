@@ -14,7 +14,7 @@
           <img src="../assets/img/profile-img.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content">
-          <h3>UI/UX Designer &amp; Web Developer.</h3>
+          <h3>Web Developer.</h3>
           <p class="fst-italic">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore
@@ -50,8 +50,38 @@
     </div>
   </section>
 </template>
-<script>
-export default {
-  name: 'AppAbout'
+
+<style scoped>
+
+.about .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #728394;
 }
-</script>
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.about .content ul strong {
+  margin-right: 10px;
+}
+
+.about .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: #0563bb;
+  line-height: 0;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+</style>
