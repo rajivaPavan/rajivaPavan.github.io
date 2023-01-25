@@ -147,7 +147,7 @@ section {
     margin-bottom: 20px;
     padding-bottom: 20px;
     position: relative;
-    color: #45505b;
+    color: var(--color-heading);
 }
 
 .section-title h2::before {
@@ -167,7 +167,7 @@ section {
     display: block;
     width: 40px;
     height: 3px;
-    background: #0563bb;
+    background: var(--color-primary-soft);
     bottom: 0;
     left: calc(50% - 20px);
 }

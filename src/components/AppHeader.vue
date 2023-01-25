@@ -5,8 +5,8 @@
   <header id="header" class="d-flex flex-column justify-content-center">
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li v-for="section in sections" >
-          <a :href="section.hash" class="nav-link" :class="section.active ? ' active' :''">
+        <li  v-for="(section,i) in sections"  >
+          <a v-if="section.hash" :href="section.hash" class="nav-link" :class="i===0 ? ' active' :''">
             <i :class="section.icon"></i> <span>{{ section.name }}</span>
           </a>
         </li>
@@ -20,17 +20,10 @@
 
 export default {
   name: 'AppHeader',
-  data() {
-    return {
-      //sections : name, hash, icon, active
-      _sections: [
-        {name: 'Home', hash: '#hero', icon: 'bx bx-home', active: true},
-        // {name: 'About', hash: '#about', icon: 'bx bx-user', active: false},
-        {name: 'Portfolio', hash: '#portfolio', icon: 'bx bx-book-content', active: false},
-        {name: 'Services', hash: '#services', icon: 'bx bx-server', active: false},
-        // {name: 'Resume', hash: '#resume', icon: 'bx bx-file-blank', active: false},
-        {name: 'Contact', hash: '#contact', icon: 'bx bx-envelope', active: false},
-      ]
+  props: {
+    sections: {
+      type: Array,
+      default: () => []
     }
   },
   methods:{
@@ -38,11 +31,6 @@ export default {
       document.querySelector('body').classList.toggle('mobile-nav-active')
       this.$refs.navToggleBtn.classList.toggle('bi-list')
       this.$refs.navToggleBtn.classList.toggle('bi-x')
-    }
-  },
-  computed: {
-    sections(){
-      return this._sections;
     }
   },
   mounted() {

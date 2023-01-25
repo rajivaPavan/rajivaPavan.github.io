@@ -1,20 +1,13 @@
 <template>
 
   <!-- ======= Header ======= -->
-  <AppHeader/><!-- End Header -->
+  <AppHeader :sections="sections"/><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <AppHero/><!-- End Hero -->
 
   <main id="main">
-
-    <AppPortfolio/>
-
-    <AppServices/>
-
-<!--    <AppResume/>-->
-
-    <AppContact/>
+    <component v-for="section in getMainSections()" :is="section.app_component" :key="section.hash"></component>
     <AppFooter/>
   </main><!-- End #main -->
 
@@ -40,8 +33,26 @@ import AppAbout from "../components/AppAbout.vue";
 
 export default {
   name: "PageHome",
-  components: {AppHeader, AppFooter, AppAbout,AppFacts, AppSkills,
-    AppContact, AppTestimonials, AppServices, AppPortfolio, AppResume, AppHero}
+  components: {AppHeader, AppFooter, AppSkills, AppPortfolio, AppContact, AppHero},
+  data() {
+    return {
+      sections: [
+        {name: 'Home', hash: '#hero', icon: 'bx bx-home', app_component: AppHero},
+        // {name: 'About', hash: '#about', icon: 'bx bx-user', app_component: AppAbout},
+        {name: 'Portfolio', hash: '#portfolio', icon: 'bx bx-book-content', app_component: AppPortfolio},
+        {name: 'Skills', hash: '#skills', icon: 'bx bx-server', app_component: AppSkills},
+        // {name: 'Resume', hash: '#resume', icon: 'bx bx-file-blank', app_component: AppResume},
+        {name: 'Contact', hash: '#contact', icon: 'bx bx-envelope', app_component: AppContact},
+        {name: 'Footer', app_component: AppFooter}
+      ]
+    }
+  },
+  methods:{
+    getMainSections(){
+      //sections except the hero and footer
+      return this.sections.slice(1, this.sections.length-1) ;
+    },
+  }
 }
 </script>
 

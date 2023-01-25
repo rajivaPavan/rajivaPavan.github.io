@@ -1,27 +1,3 @@
-<script>
-import SocialLinks from "./SocialLinks.vue";
-
-export default {
-  name: 'AppContact',
-  components: {SocialLinks},
-  data() {
-    return {
-      contactMethods: [
-        {name: 'email', value: 'pavanpitiwaduge@outlook.com', icon: 'bi bi-envelope', contactClass : 'email',
-        contact: () => {
-          window.open('mailto:' + this.contactMethods[0].value);
-        }},
-        {name: 'phone', value: '+94 77 540 5059', icon: 'bi bi-phone', contactClass : 'phone', contact: () => {
-          window.open('tel:'+ this.contactMethods[1].value);
-        }}
-          ]
-    }
-  },
-  methods:{
-
-  }
-}
-</script>
 <template>
   <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
@@ -54,6 +30,28 @@ export default {
     </div>
   </section>
 </template>
+<script>
+import SocialLinks from "./SocialLinks.vue";
+
+export default {
+  name: 'AppContact',
+  components: {SocialLinks},
+  data() {
+    return {
+      contactMethods: [
+        {name: 'email', value: 'pavanpitiwaduge@outlook.com', icon: 'bi bi-envelope', contactClass : 'email',
+        contact: () => {
+          window.open('mailto:' + this.contactMethods[0].value);
+        }},
+        {name: 'phone', value: '+94 77 540 5059', icon: 'bi bi-phone', contactClass : 'phone', contact: () => {
+          window.open('tel:'+ this.contactMethods[1].value);
+        }}
+          ]
+    }
+  },
+}
+</script>
+
 
 <style scoped>
 #freelance{
