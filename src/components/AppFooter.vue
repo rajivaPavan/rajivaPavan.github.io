@@ -1,9 +1,10 @@
 <template>
   <footer id="footer">
     <div class="container">
-      <h3>Brandon Johnson</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
-      <SocialLinks/>
+<!--      <h3>Pavan Pitiwaduge</h3>-->
+      <p>
+        "When your intention is pure, no matter how you are judged, you will always get what you deserve.."
+      </p>
     </div>
   </footer>
 </template>
@@ -23,51 +24,23 @@ export default {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #f7f8f9;
-  color: #45505b;
+  background: var(--color-background);
+  color: var(--color-heading);
   font-size: 14px;
   text-align: center;
   padding: 30px 0;
 }
-
-#footer h3 {
-  font-size: 36px;
-  font-weight: 700;
-  position: relative;
-  font-family: "Poppins", sans-serif;
-  padding: 0;
-  margin: 0 0 15px 0;
-}
-
 #footer p {
   font-size: 15px;
   font-style: italic;
-  padding: 0;
+  padding: 0 10px;
   margin: 0 0 40px 0;
 }
 
-:deep(#footer .social-links) {
-  margin: 0 0 40px 0;
-}
-
-:deep(#footer .social-links a) {
-  font-size: 18px;
-  display: inline-block;
-  background: #0563bb;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
-
-:deep(#footer .social-links a:hover) {
-  background: #0678e3;
-  color: #fff;
-  text-decoration: none;
+/*Mobile view*/
+@media (max-width: 992px) {
+  #footer {
+    padding: 0;
+  }
 }
 </style>

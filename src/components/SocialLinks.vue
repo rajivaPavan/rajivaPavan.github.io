@@ -1,8 +1,10 @@
 <template>
   <div class="social-links">
-    <a v-for="social in socialLinks" :class="social.name" :href="social.link" target="_blank">
-      <i :class="social.icon"></i>
-    </a>
+    <div class="social-icon-container" v-for="social in socialLinks">
+      <a  :class="social.name" :href="social.link" target="_blank">
+        <i :class="social.icon"></i>
+      </a>
+    </div>
   </div>
 </template>
 <script>
@@ -21,6 +23,7 @@ export default {
         SocialLink('facebook', 'https://www.facebook.com/pavan.pitiwaduge', 'bx bxl-facebook'),
         SocialLink('instagram', 'https://www.instagram.com/_pavan.0001/', 'bx bxl-instagram'),
         SocialLink('linkedin', 'https://www.linkedin.com/in/pavan-pitiwaduge/', 'bx bxl-linkedin'),
+          SocialLink('github', 'https://github.com/rajivaPavan', 'bx bxl-github'),
       ]
     }
   }

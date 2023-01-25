@@ -1,7 +1,5 @@
 <template>
-  <!-- ======= Mobile nav toggle button ======= -->
-  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
-  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
   <!-- ======= Header ======= -->
   <AppHeader/><!-- End Header -->
 
@@ -14,17 +12,15 @@
 
     <AppServices/>
 
-    <AppResume/>
+<!--    <AppResume/>-->
 
     <AppContact/>
-
+    <AppFooter/>
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <AppFooter/><!-- End Footer -->
 
 <!--  <div id="preloader"></div>-->
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#hero" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 </template>
 
 <script>
@@ -50,5 +46,7 @@ export default {
 </script>
 
 <style scoped>
-
+#main{
+  background-color: var(--color-background);
+}
 </style>

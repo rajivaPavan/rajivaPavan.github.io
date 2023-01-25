@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       name: 'Pavan Pitiwaduge',
-      titles: ['an Engineering student', 'a Developer', 'a Freelancer']
+      titles: ['an Engineering Student', 'a Developer', 'a Freelancer']
     }
   },
   methods: {
@@ -34,6 +34,11 @@ export default {
 </template>
 
 <style scoped>
+:root{
+  --typing-text-color: var(--color-link-hover);
+  --color-hero-text: var(--color-heading);
+}
+
 #hero {
   width: 100%;
   height: 100vh;
@@ -58,7 +63,8 @@ export default {
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--color-background);
+  opacity: 0.8;
   position: absolute;
   bottom: 0;
   top: 0;
@@ -71,32 +77,34 @@ export default {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #45505b;
+  color:var(--color-hero-text);
 }
 
 #hero p {
-  color: #45505b;
+  color: var(--color-hero-text);
   margin: 15px 0 0 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
 
-:deep(#hero p span) {
-  color: #0563bb;
+:deep(span) {
+  color: var(--typing-text-color);
   letter-spacing: 1px;
 }
-
+:deep(.social-links) {
+  display: flex;
+}
 :deep(.social-links a) {
   font-size: 24px;
   display: inline-block;
-  color: #45505b;
+  color: var(--color-hero-text);
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
 
 :deep(.social-links a:hover) {
-  color: #0563bb;
+  color: var(--color-link-hover);
 }
 
 @media (max-width: 992px) {
@@ -113,6 +121,14 @@ export default {
     margin-top: 10px;
     font-size: 20px;
     line-height: 24px;
+  }
+  :deep(.social-links) {
+    display: flex;
+    justify-content: center;
+  }
+  :deep(.social-links a) {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 </style>

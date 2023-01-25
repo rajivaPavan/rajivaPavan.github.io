@@ -1,21 +1,23 @@
 @import "./base.css";
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
     font-family: "Open Sans", sans-serif;
-    color: #272829;
+    color: var(--color-text);
+    background: var(--color-background);
 }
 
 a {
-    color: #0563bb;
+    color: var(--color-link);
     text-decoration: none;
 }
 
 a:hover {
-    color: #067ded;
+    color: var(--color-link-hover);
     text-decoration: none;
 }
 
@@ -72,7 +74,7 @@ h6 {
     bottom: 0;
     z-index: 9999;
     overflow: hidden;
-    background: #fff;
+    background: var(--color-background);
 }
 
 #preloader:before {
@@ -81,8 +83,8 @@ h6 {
     top: calc(50% - 30px);
     left: calc(50% - 30px);
     border: 6px solid #0563bb;
-    border-top-color: #fff;
-    border-bottom-color: #fff;
+    border-top-color: var(--color-background);
+    border-bottom-color: var(--color-background);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -115,7 +117,7 @@ h6 {
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
     [data-aos-delay] {
-        transition-delay: 0 !important;
+        transition-delay: 0s !important;
     }
 }
 

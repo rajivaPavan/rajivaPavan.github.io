@@ -1,3 +1,20 @@
+<template>
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none" @click="navToggle()" ref="navToggleBtn"></i>
+
+  <header id="header" class="d-flex flex-column justify-content-center">
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li v-for="section in sections" >
+          <a :href="section.hash" class="nav-link" :class="section.active ? ' active' :''">
+            <i :class="section.icon"></i> <span>{{ section.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header>
+</template>
 <script>
 
 
@@ -6,23 +23,30 @@ export default {
   data() {
     return {
       //sections : name, hash, icon, active
-      sections: [
+      _sections: [
         {name: 'Home', hash: '#hero', icon: 'bx bx-home', active: true},
         // {name: 'About', hash: '#about', icon: 'bx bx-user', active: false},
         {name: 'Portfolio', hash: '#portfolio', icon: 'bx bx-book-content', active: false},
         {name: 'Services', hash: '#services', icon: 'bx bx-server', active: false},
-        {name: 'Resume', hash: '#resume', icon: 'bx bx-file-blank', active: false},
+        // {name: 'Resume', hash: '#resume', icon: 'bx bx-file-blank', active: false},
         {name: 'Contact', hash: '#contact', icon: 'bx bx-envelope', active: false},
       ]
     }
   },
+  methods:{
+    navToggle(){
+      document.querySelector('body').classList.toggle('mobile-nav-active')
+      this.$refs.navToggleBtn.classList.toggle('bi-list')
+      this.$refs.navToggleBtn.classList.toggle('bi-x')
+    }
+  },
   computed: {
     sections(){
-      return this.sections;
+      return this._sections;
     }
   },
   mounted() {
-    let navbarLinks = this.$el.querySelectorAll('.nav-link')
+    let navbarLinks = document.querySelectorAll('.nav-link');
     const navbarLinksActive = () => {
       let position = window.scrollY + 200
       navbarLinks.forEach(navbarLink => {
@@ -36,25 +60,13 @@ export default {
         }
       })
     }
-    document.addEventListener('scroll', navbarLinksActive)
+    document.addEventListener('load', navbarLinksActive);
+    document.addEventListener('scroll', navbarLinksActive);
   }
 }
 </script>
 
-<template>
-  <header id="header" class="d-flex flex-column justify-content-center">
-    <nav id="navbar" class="navbar nav-menu">
-      <ul>
-        <li v-for="section in sections" >
-          <a :href="section.hash" class="nav-link" :class="section.active ? 'active' :''">
-            <i :class="section.icon"></i> <span>{{ section.name }}</span>
-          </a>
-        </li>
-      </ul>
-    </nav><!-- .nav-menu -->
 
-  </header>
-</template>
 
 
 <style scoped>
@@ -73,8 +85,8 @@ export default {
 @media (max-width: 991px) {
   #header {
     width: 300px;
-    background: #fff;
-    border-right: 1px solid #e6e9ec;
+    background: var(--color-background);
+    border-right: 1px solid var(--color-border);
     left: -300px;
   }
 }
@@ -106,17 +118,17 @@ export default {
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  color: #45505b;
+  color: var(--color-text);
   padding: 10px 18px;
   margin-bottom: 8px;
   transition: 0.3s;
   font-size: 15px;
   border-radius: 50px;
-  background: #f2f3f5;
+  background: var(--color-background-mute);
+  border: 1px solid var(--color-border);
   height: 56px;
   width: 100%;
   overflow: hidden;
-  transition: 0.3s;
 }
 
 .nav-menu a i,
@@ -127,7 +139,7 @@ export default {
 .nav-menu a span,
 .nav-menu a:focus span {
   padding: 0 5px 0 7px;
-  color: #45505b;
+  color: var(--color-text);
 }
 
 @media (min-width: 992px) {
@@ -140,7 +152,7 @@ export default {
   .nav-menu a span,
   .nav-menu a:focus span {
     display: none;
-    color: #fff;
+    color:  var(--color-text-in-primary);
   }
 }
 
@@ -148,21 +160,21 @@ export default {
 .nav-menu .active,
 .nav-menu .active:focus,
 .nav-menu li:hover>a {
-  color: #fff;
-  background: #0563bb;
+  color:  var(--color-text-in-primary);
+  background: var(--color-primary-bright);
 }
 
 .nav-menu a:hover span,
 .nav-menu .active span,
 .nav-menu .active:focus span,
 .nav-menu li:hover>a span {
-  color: #fff;
+  color:  var(--color-text-in-primary);
 }
 
 .nav-menu a:hover,
 .nav-menu li:hover>a {
   width: 100%;
-  color: #fff;
+  color:  var(--color-text-in-primary);
 }
 
 .nav-menu a:hover span,
@@ -190,7 +202,7 @@ export default {
 }
 
 .mobile-nav-toggle i {
-  color: #45505b;
+  color: var(--color-heading);
 }
 
 .mobile-nav-active {
@@ -202,8 +214,8 @@ export default {
 }
 
 .mobile-nav-active .mobile-nav-toggle {
-  color: #fff;
-  background-color: #0563bb;
+  color: var(--color-text-in-primary);
+  background-color: var(--color-primary-bright);
 }
 
 </style>
