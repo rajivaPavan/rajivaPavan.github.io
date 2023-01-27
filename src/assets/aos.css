@@ -1,0 +1,54 @@
+/*Zoom*/
+[data-aos^=zoom][data-aos^=zoom] {
+    opacity: 0;
+    transition-property: opacity, transform
+}
+
+[data-aos^=zoom][data-aos^=zoom].aos-animate {
+    opacity: 1;
+    transform: translateZ(0) scale(1)
+}
+
+[data-aos=zoom-in] {
+    transform: scale(.6)
+}
+/*Fade*/
+[data-aos^=fade][data-aos^=fade] {
+    opacity: 0;
+    transition-property: opacity, transform
+}
+
+[data-aos^=fade][data-aos^=fade].aos-animate {
+    opacity: 1;
+    transform: translateZ(0)
+}
+
+[data-aos=fade-up] {
+    transform: translate3d(0, 100px, 0)
+}
+
+/*Delays and Durations*/
+[data-aos][data-aos][data-aos-duration="1000"]{
+    transition-duration: 1s !important
+}
+
+[data-aos][data-aos][data-aos-delay="100"]{
+    transition-delay: 0s
+}
+
+[data-aos][data-aos][data-aos-delay="100"].aos-animate {
+    transition-delay: .1s !important
+}
+
+[data-aos][data-aos][data-aos-duration="2000"]{
+    transition-duration: 2s !important
+}
+
+[data-aos][data-aos][data-aos-delay="200"] {
+    transition-delay: 0s
+}
+
+[data-aos][data-aos][data-aos-delay="200"].aos-animate {
+    transition-delay: .2s !important
+}
+
