@@ -1,32 +1,22 @@
 <script>
 //TODO: optimize icons
 import TypingList from "./TypingList.vue";
+import SocialLinks from "./SocialLinks.vue";
 
-const SocialLink = (name, link, icon) => {
-  return {
-    name: name, link: link, icon: icon
-  };
-}
+
 
 export default {
   name: 'AppHero',
-  components: {TypingList},
+  components: {SocialLinks, TypingList},
   data() {
     return {
       name: 'Pavan Pitiwaduge',
-      titles: ['Engineering student', 'Developer', 'Freelancer'],
-      socialLinks: [
-        SocialLink('twitter', 'https://twitter.com/RajivaPavan', 'bx bxl-twitter'),
-        SocialLink('facebook', 'https://www.facebook.com/pavan.pitiwaduge', 'bx bxl-facebook'),
-        SocialLink('instagram', 'https://www.instagram.com/_pavan.0001/', 'bx bxl-instagram'),
-        SocialLink('linkedin', 'https://www.linkedin.com/in/pavan-pitiwaduge/', 'bx bxl-linkedin'),
-      ]
+      titles: ['an Engineering Student', 'a Developer', 'a Freelancer']
     }
   },
   methods: {
     getTitles() {
-      //combine the titles by comma
-      return this.titles.join(', ');
+      return this.titles;
     }
   }
 }
@@ -35,22 +25,24 @@ export default {
   <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
       <h1>{{ this.name }}</h1>
-      <p>I'm an
-        <TypingList :words="getTitles()" :speed="100"/>
+      <p class="mb-4">I'm
+        <TypingList :words="getTitles()"/>
       </p>
-      <div class="social-links">
-        <a v-for="social in socialLinks" :class="social.name" :href="social.link" target="_blank">
-          <i :class="social.icon"></i>
-        </a>
-      </div>
+      <SocialLinks/>
     </div>
   </section>
 </template>
+
 <style scoped>
+:root{
+  --typing-text-color: var(--color-link-hover);
+  --color-hero-text: var(--color-heading);
+}
+
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../../src/assets/img/hero-bg.jpg") top right no-repeat;
+  background: url("../assets/img/hero-bg.jpg") top right no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -63,7 +55,8 @@ export default {
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--color-background);
+  opacity: 0.8;
   position: absolute;
   bottom: 0;
   top: 0;
@@ -76,52 +69,57 @@ export default {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #45505b;
+  color:var(--color-hero-text);
 }
 
 #hero p {
-  color: #45505b;
+  color: var(--color-hero-text);
   margin: 15px 0 0 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
 
-#hero p span {
-  color: #0563bb;
+:deep(span){
+  color: var(--typing-text-color);
   letter-spacing: 1px;
 }
-
-#hero .social-links {
-  margin-top: 30px;
+:deep(.social-links) {
+  display: flex;
 }
-
-#hero .social-links a {
+:deep(.social-links a) {
   font-size: 24px;
   display: inline-block;
-  color: #45505b;
+  color: var(--color-hero-text);
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
-
-#hero .social-links a:hover {
-  color: #0563bb;
+:deep(.social-links a:hover) {
+  color: var(--color-link-hover);
 }
 
 @media (max-width: 992px) {
   #hero {
+    background: url("../assets/img/hero-bg-mobile.jpg") center center no-repeat;
+    background-size: cover;
     text-align: center;
   }
-
   #hero h1 {
     font-size: 32px;
     line-height: 36px;
   }
-
   #hero p {
     margin-top: 10px;
     font-size: 20px;
     line-height: 24px;
+  }
+  :deep(.social-links) {
+    display: flex;
+    justify-content: center;
+  }
+  :deep(.social-links a) {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 </style>
