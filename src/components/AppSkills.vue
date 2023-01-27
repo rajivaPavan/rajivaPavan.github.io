@@ -11,7 +11,7 @@
 
         <div class="col-12 col-lg-11 skills-images">
           <div v-for="skill in skills">
-<!--            <img :src="skill.image" class="img-thumbnail border-0" alt="">-->
+            <img :src="skill.image" class="img-thumbnail border-0" alt="">
           </div>
         </div>
 
