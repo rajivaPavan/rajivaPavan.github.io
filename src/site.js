@@ -74,16 +74,6 @@ import initAOS from "./aos.js";
         }
     });
 
-    /**
-     * Preloader
-     */
-    let preloader = select('#preloader');
-    if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.remove()
-        });
-    }
-
     /** Custom Animate on Scroll*/
     initAOS({
         duration: 1000,
