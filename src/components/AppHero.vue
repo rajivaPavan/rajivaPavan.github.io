@@ -47,14 +47,6 @@ export default {
   position: relative;
 }
 
-/*for mobile screen*/
-@media (max-width: 992px) {
-  #hero {
-    background: url("../assets/img/hero-bg-mobile.jpg") center center no-repeat;
-    background-size: cover;
-  }
-}
-
 @media (min-width: 992px) {
   #hero {
     padding-left: 160px;
@@ -87,7 +79,7 @@ export default {
   font-family: "Poppins", sans-serif;
 }
 
-:deep(span) {
+:deep(span){
   color: var(--typing-text-color);
   letter-spacing: 1px;
 }
@@ -102,21 +94,20 @@ export default {
   margin-right: 20px;
   transition: 0.3s;
 }
-
 :deep(.social-links a:hover) {
   color: var(--color-link-hover);
 }
 
 @media (max-width: 992px) {
   #hero {
+    background: url("../assets/img/hero-bg-mobile.jpg") center center no-repeat;
+    background-size: cover;
     text-align: center;
   }
-
   #hero h1 {
     font-size: 32px;
     line-height: 36px;
   }
-
   #hero p {
     margin-top: 10px;
     font-size: 20px;

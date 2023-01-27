@@ -4,9 +4,7 @@
 
       <div class="section-title">
         <h2>Portfolio</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-          in iste officiis commodi quidem hic quas.</p>
+        <p>The nature of a portfolio is that it's always a work in progress.</p>
       </div>
 
       <div class="row">
@@ -29,10 +27,10 @@
               <h4>App 1</h4>
               <p>App</p>
               <div class="portfolio-links">
-<!--                <a href="../assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"-->
-<!--                   class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>-->
-<!--                <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external"-->
-<!--                   title="Portfolio Details"><i class="bx bx-link"></i></a>-->
+                <a href="../assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
+                   class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external"
+                   title="Portfolio Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
@@ -42,7 +40,15 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  name: 'AppPortfolio',
+}
+</script>
 <style scoped>
+.portfolio .section-title p{
+  font-style: italic;
+}
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
