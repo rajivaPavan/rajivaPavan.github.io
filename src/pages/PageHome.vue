@@ -54,6 +54,22 @@ export default {
         preloader.remove()
       });
     }
+
+    /**
+     * Back to top button
+     */
+    let backToTop = document.querySelector('.back-to-top')
+    if (backToTop) {
+      const toggleBackToTop = () => {
+        if (window.scrollY > 100) {
+          backToTop.classList.add('active')
+        } else {
+          backToTop.classList.remove('active')
+        }
+      }
+      window.addEventListener('load', toggleBackToTop)
+      document.addEventListener('scroll', toggleBackToTop)
+    }
   }
 }
 </script>
