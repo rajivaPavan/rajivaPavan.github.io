@@ -35,6 +35,12 @@ export default {
   },
   mounted() {
     let navbarLinks = document.querySelectorAll('.nav-link');
+    //add the navToggle method as the click listener for navbarLinks if in mobile view
+    if (window.innerWidth <= 991) {
+      navbarLinks.forEach(navbarLink => {
+        navbarLink.addEventListener('click', this.navToggle)
+      })
+    }
     const navbarLinksActive = () => {
       let position = window.scrollY + 200
       navbarLinks.forEach(navbarLink => {

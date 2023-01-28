@@ -42,12 +42,13 @@
 </template>
 <script>
 export default {
-  name: 'AppPortfolio',
+  name: 'AppPortfolio'
 }
 </script>
 <style scoped>
 .portfolio .section-title p{
   font-style: italic;
+  color: var(--color-text);
 }
 .portfolio .portfolio-item {
   margin-bottom: 30px;

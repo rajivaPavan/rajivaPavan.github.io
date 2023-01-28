@@ -7,13 +7,14 @@
   <AppHero/><!-- End Hero -->
 
   <main id="main">
-    <component v-for="section in getMainSections()" :is="section.app_component" :key="section.hash"></component>
+    <component :is="section.app_component" v-for="section in getMainSections()" :key="section.hash"></component>
     <AppFooter/>
   </main><!-- End #main -->
 
 
-<!--  <div id="preloader"></div>-->
-  <a href="#hero" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+  <a class="back-to-top d-flex align-items-center justify-content-center" href="#hero"><i
+      class="bi bi-arrow-up-short"></i></a>
 </template>
 
 <script>
@@ -40,17 +41,41 @@ export default {
       ]
     }
   },
-  methods:{
-    getMainSections(){
+  methods: {
+    getMainSections() {
       //sections except the hero and footer
-      return this.sections.slice(1, this.sections.length-1) ;
+      return this.sections.slice(1, this.sections.length - 1);
     },
+  },
+  mounted() {
+    let preloader = document.querySelector('#preloader');
+    if (preloader) {
+      window.addEventListener('load', () => {
+        preloader.remove()
+      });
+    }
+
+    /**
+     * Back to top button
+     */
+    let backToTop = document.querySelector('.back-to-top')
+    if (backToTop) {
+      const toggleBackToTop = () => {
+        if (window.scrollY > 100) {
+          backToTop.classList.add('active')
+        } else {
+          backToTop.classList.remove('active')
+        }
+      }
+      window.addEventListener('load', toggleBackToTop)
+      document.addEventListener('scroll', toggleBackToTop)
+    }
   }
 }
 </script>
 
 <style scoped>
-#main{
+#main {
   background-color: var(--color-background);
 }
 </style>
