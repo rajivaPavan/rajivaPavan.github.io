@@ -36,7 +36,6 @@ export default {
 <style scoped>
 :root{
   --typing-text-color: var(--color-link-hover);
-  --color-hero-text: var(--color-heading);
 }
 
 #hero {
@@ -69,11 +68,11 @@ export default {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color:var(--color-hero-text);
+  color:var(--color-heading);
 }
 
 #hero p {
-  color: var(--color-hero-text);
+  color: var(--color-heading);
   margin: 15px 0 0 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
@@ -89,7 +88,7 @@ export default {
 :deep(.social-links a) {
   font-size: 24px;
   display: inline-block;
-  color: var(--color-hero-text);
+  color: var(--color-heading);
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
