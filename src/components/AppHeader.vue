@@ -192,7 +192,7 @@ export default {
   line-height: 0;
   cursor: pointer;
   border-radius: 50px;
-  padding: 5px;
+  padding: 5px 2px;
 }
 
 .mobile-nav-toggle i {
@@ -209,6 +209,7 @@ export default {
 
 .mobile-nav-active .mobile-nav-toggle {
   color: var(--color-text-in-primary);
+  background: var(--color-primary-bright);
 }
 
 </style>
