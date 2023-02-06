@@ -39,11 +39,11 @@ export default {
   data() {
     return {
       contactMethods: [
-        {name: 'email', value: 'pavanpitiwaduge@outlook.com', icon: 'bi bi-envelope', contactClass : 'email',
+        {name: 'email', value: 'pavanpitiwaduge@outlook.com', icon: 'bx bx-envelope', contactClass : 'email',
         contact: () => {
           window.open('mailto:' + this.contactMethods[0].value);
         }},
-        {name: 'phone', value: '+94 77 540 5059', icon: 'bi bi-phone', contactClass : 'phone', contact: () => {
+        {name: 'phone', value: '+94 77 540 5059', icon: 'bx bx-phone', contactClass : 'phone', contact: () => {
           window.open('tel:'+ this.contactMethods[1].value);
         }}
           ]

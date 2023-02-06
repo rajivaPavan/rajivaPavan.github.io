@@ -58,10 +58,10 @@ const links = {
             integrity: 'sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=='
         }),
     },
-    bootstrapIcons: {
-        dev: new LinkTag({href:'src/assets/vendor/bootstrap-icons/bootstrap-icons.css'}),
+    boxIcons: {
+        dev: new LinkTag({href:'src/assets/vendor/boxicons/css/boxicons.min.css'}),
         prod: new LinkTag({
-            href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/bootstrap-icons.min.css',
+            href: 'https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.9/css/boxicons.min.css',
         }),
     }
 }

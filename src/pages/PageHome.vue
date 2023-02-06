@@ -14,7 +14,7 @@
 
   <div id="preloader"></div>
   <a class="back-to-top d-flex align-items-center justify-content-center" href="#hero"><i
-      class="bi bi-arrow-up-short"></i></a>
+      class="bx bx-up-arrow-alt"></i></a>
 </template>
 
 <script>
