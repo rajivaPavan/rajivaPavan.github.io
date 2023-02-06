@@ -10,25 +10,21 @@
       <div class="row">
         <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
           <ul id="portfolio-filters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
+            <li v-for="filter in portfolioFilters" @click="setFilter(filter)"
+            :class="isFilterActive(filter)? 'filter-active':''">{{filter.name}}</li>
           </ul>
         </div>
       </div>
 
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div v-for="item in portfolioItemsFiltered" class="col-lg-4 col-md-6 portfolio-item filter-app">
           <div class="portfolio-wrap">
-            <img src="../../public/assets/images/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+            <img :src="item.image" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>App 1</h4>
               <p>App</p>
               <div class="portfolio-links">
-                <a href="../../public/assets/images/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                   class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external"
                    title="Portfolio Details"><i class="bx bx-link"></i></a>
               </div>
@@ -41,8 +37,62 @@
   </section>
 </template>
 <script>
+
+class Portfolio{
+  static FilterAll = {name: 'All', filter: '*'};
+  static FilterApp = {name: 'App', filter: '.filter-app'};
+  static FilterWeb = {name: 'Web', filter: '.filter-web'};
+
+  static filter = (item, filter) => {
+    if(filter.filter === Portfolio.FilterAll.filter) return true;
+    return item.category.filter === filter.filter;
+  }
+}
+
+class PortfolioItem {
+  constructor({ name, category, image, details, gallery }) {
+    this.name = name;
+    this.category = category;
+    this.image = image;
+    this.details = details;
+    this.gallery = gallery;
+  }
+}
+
 export default {
-  name: 'AppPortfolio'
+  name: 'AppPortfolio',
+  data(){
+    return {
+      currentFilter: Portfolio.FilterAll,
+      portfolioFilters: [
+        Portfolio.FilterAll,
+        Portfolio.FilterApp,
+        Portfolio.FilterWeb
+      ],
+      portfolioItems: [
+        {
+          name: 'App 1',
+          category: Portfolio.FilterApp,
+          image: '../../public/assets/images/portfolio/portfolio-1.jpg',
+          details: 'portfolio-details.html',
+          gallery: '../../public/assets/images/portfolio/portfolio-1.jpg'
+        },
+      ]
+    }
+  },
+  methods: {
+    setFilter(filter){
+      this.currentFilter = filter;
+    },
+    isFilterActive(filter){
+      return this.currentFilter === filter;
+    }
+  },
+  computed: {
+    portfolioItemsFiltered(){
+      return this.portfolioItems.filter(item => Portfolio.filter(item, this.currentFilter));
+    }
+  },
 }
 </script>
 <style scoped>
