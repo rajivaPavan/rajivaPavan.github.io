@@ -10,58 +10,171 @@
       <div class="row">
         <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
           <ul id="portfolio-filters">
-            <li v-for="filter in portfolioFilters" @click="setFilter(filter)"
-            :class="isFilterActive(filter)? 'filter-active':''">{{filter.name}}</li>
+            <li v-for="filter in portfolioFilters" :class="isFilterActive(filter)? 'filter-active':''"
+                @click="setFilter(filter)">{{ filter.name }}
+            </li>
           </ul>
         </div>
       </div>
 
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-        <div v-for="item in portfolioItemsFiltered" class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img :src="item.image" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external"
-                   title="Portfolio Details"><i class="bx bx-link"></i></a>
+        <div v-for="col in [...Array(3).keys()]" class="col-lg-4 col-md-6">
+          <div v-for="item in getPortfolioColItems(col)" class="portfolio-item">
+            <div class="portfolio-wrap">
+              <img :src="item.image" alt="" class="img-fluid">
+              <div class="portfolio-info">
+                <h4>{{ item.name }}</h4>
+                <p>{{ item.category.name }}</p>
+                <div class="portfolio-links">
+                  <a v-for="link in item.details.links" :href="link.url" target="_blank"><i :class="link.icon"></i></a>
+                </div>
+                <div v-if="item.details.tech" class="technologies">
+                  <img v-for="tech in item.details.tech" :src="tech.image" alt="" class="img-thumbnail border-0"
+                       loading="lazy">
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>
 <script>
+import SOWeb from '/assets/images/portfolio/web-so.jpeg';
+import DocuSignWeb from '/assets/images/portfolio/web-docusign.png';
+import KardsApp from '/assets/images/portfolio/app-kards.jpg';
+import IntelliSurgery from '/assets/images/portfolio/web-intellisurgery.png';
+import TranslatorApp from '/assets/images/portfolio/app-translator.png';
+import PortfolioWeb from '/assets/images/portfolio/web-portfolio.png';
 
-class Portfolio{
+class Portfolio {
   static FilterAll = {name: 'All', filter: '*'};
   static FilterApp = {name: 'App', filter: '.filter-app'};
   static FilterWeb = {name: 'Web', filter: '.filter-web'};
 
   static filter = (item, filter) => {
-    if(filter.filter === Portfolio.FilterAll.filter) return true;
+    if (filter.filter === Portfolio.FilterAll.filter) return true;
     return item.category.filter === filter.filter;
   }
 }
 
 class PortfolioItem {
-  constructor({ name, category, image, details, gallery }) {
+  constructor({name, category, image, details}) {
     this.name = name;
     this.category = category;
     this.image = image;
     this.details = details;
-    this.gallery = gallery;
   }
 }
 
+class PortfolioItemDetails {
+  constructor({links, tech}) {
+    this.links = links;
+    this.tech = tech;
+  }
+}
+
+const projects = [
+  new PortfolioItem({
+    name: 'Kards',
+    category: Portfolio.FilterApp,
+    image: KardsApp,
+    details: new PortfolioItemDetails({
+      links: [
+        {url: 'https://play.google.com/store/apps/details?id=games.kardsapp.cardgame', icon: 'bx bxl-play-store'},
+        {url: 'https://www.kardsapp.games', icon: 'bx bx-world'},
+      ],
+      tech: [
+        //flutter, webrtc, dotnet core, signalr, azure
+        {image: 'https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg'},
+        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},
+        {image: 'https://webrtc.github.io/webrtc-org/assets/images/webrtc-logo-vert-retro-dist.svg'},
+        {image: 'https://img.stackshare.io/service/4013/SignalR-logo.png'}
+      ]
+    })
+  }),
+  new PortfolioItem({
+    name: 'DocuSign',
+    category: Portfolio.FilterWeb,
+    image: DocuSignWeb,
+    details: new PortfolioItemDetails({
+      links: [
+        {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: 'bx bxl-github'},
+      ],
+      tech: [
+        //html, css3, bootstrap, javascript, dotnet core
+        {image: 'https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg'},
+        {image: 'https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg'},
+        {image: 'https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-icon.svg'},
+        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},]
+    }),
+  }),
+  new PortfolioItem({
+    name: 'Speech Olympiad XV Website',
+    category: Portfolio.FilterWeb,
+    image: SOWeb,
+    details: new PortfolioItemDetails({
+      links: [
+        {url: 'https://github.com/SpeechOlympiadXV/speecholympiadxv.github.io', icon: 'bx bxl-github'},
+        {url: 'https://speecholympiadxv.live/', icon: 'bx bx-world'},
+      ],
+      tech: [
+        //  vue3
+        {image: 'https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg'},
+      ]
+    }),
+  }),
+  new PortfolioItem({
+    name: 'IntelliSurgery',
+    category: Portfolio.FilterWeb,
+    image: IntelliSurgery,
+    details: new PortfolioItemDetails({
+      links: [
+        {url: 'https://github.com/rajivaPavan/IntelliSurgery', icon: 'bx bxl-github'},
+      ],
+      tech: [
+        //html, css3, bootstrap, javascript, dotnet core
+        {image: 'https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg'},
+        {image: 'https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg'},
+        {image: 'https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-icon.svg'},
+        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},
+      ]
+    }),
+  }),
+  new PortfolioItem({
+    name: 'Translator App',
+    category: Portfolio.FilterApp,
+    image: TranslatorApp,
+    details: new PortfolioItemDetails({
+      links: [
+        {url: 'https://github.com/rajivaPavan/TranslatorApp', icon: 'bx bxl-github'},
+      ],
+      tech: [
+        //kolin, jetpack compose
+        {image: 'https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg'},
+        {image: 'https://www.vectorlogo.zone/logos/android/android-icon.svg'},
+      ]
+    })
+  }),
+  new PortfolioItem({
+    name: 'Portfolio Website',
+    category: Portfolio.FilterWeb,
+    image: PortfolioWeb,
+    details: new PortfolioItemDetails({
+      links: [
+        {url: 'https://github.com/rajivaPavan/rajivaPavan.github.io', icon: 'bx bxl-github'},],
+      tech: [
+        //vue3, tailwindcss
+        {image: 'https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg'},
+      ]
+    })
+  })
+];
+
 export default {
   name: 'AppPortfolio',
-  data(){
+  data() {
     return {
       currentFilter: Portfolio.FilterAll,
       portfolioFilters: [
@@ -69,37 +182,38 @@ export default {
         Portfolio.FilterApp,
         Portfolio.FilterWeb
       ],
-      portfolioItems: [
-        {
-          name: 'App 1',
-          category: Portfolio.FilterApp,
-          image: '../../public/assets/images/portfolio/portfolio-1.jpg',
-          details: 'portfolio-details.html',
-          gallery: '../../public/assets/images/portfolio/portfolio-1.jpg'
-        },
-      ]
+      portfolioItems: projects
     }
   },
   methods: {
-    setFilter(filter){
+    setFilter(filter) {
       this.currentFilter = filter;
     },
-    isFilterActive(filter){
+    isFilterActive(filter) {
       return this.currentFilter === filter;
+    },
+    getPortfolioColItems(col) {
+      const items = this.portfolioItemsFiltered;
+      const colItems = [];
+      for (let i = col; i < items.length; i += 3) {
+        colItems.push(items[i]);
+      }
+      return colItems;
     }
   },
   computed: {
-    portfolioItemsFiltered(){
+    portfolioItemsFiltered() {
       return this.portfolioItems.filter(item => Portfolio.filter(item, this.currentFilter));
     }
   },
 }
 </script>
 <style scoped>
-.portfolio .section-title p{
+.portfolio .section-title p {
   font-style: italic;
   color: var(--color-text);
 }
+
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
@@ -145,7 +259,7 @@ export default {
 
 .portfolio .portfolio-wrap::before {
   content: "";
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--color-background-filter);
   position: absolute;
   left: 30px;
   right: 30px;
@@ -180,8 +294,8 @@ export default {
   position: absolute;
   top: 35px;
   left: 35px;
-  border-top: 3px solid #d7dce1;
-  border-left: 3px solid #d7dce1;
+  border-top: 3px solid var(--color-border-strong);
+  border-left: 3px solid var(--color-border-strong);
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
@@ -194,23 +308,29 @@ export default {
   position: absolute;
   bottom: 35px;
   right: 35px;
-  border-bottom: 3px solid #d7dce1;
-  border-right: 3px solid #d7dce1;
+  border-bottom: 3px solid var(--color-border-strong);
+  border-right: 3px solid var(--color-border-strong);
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
 
+.portfolio .portfolio-wrap .portfolio-info h4, .portfolio .portfolio-wrap .portfolio-info p {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
-  color: #45505b;
   font-weight: 600;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
-  color: #45505b;
+  color: var(--color-text);
+  background-color: var(--color-background);
   font-size: 14px;
   text-transform: uppercase;
-  padding: 0;
   margin: 0;
 }
 
@@ -220,7 +340,7 @@ export default {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #45505b;
+  color: var(--color-text);
   margin: 0 2px;
   font-size: 28px;
   display: inline-block;
@@ -251,5 +371,19 @@ export default {
 .portfolio .portfolio-wrap:hover .portfolio-info::after {
   bottom: 15px;
   right: 15px;
+}
+
+.portfolio .portfolio-wrap .technologies {
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.technologies {
+  background-color: transparent;
+}
+
+.technologies img {
+  height: 40px;
+  margin: 5px;
 }
 </style>
