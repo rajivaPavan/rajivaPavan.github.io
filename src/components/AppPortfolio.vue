@@ -103,10 +103,6 @@ const projects = [
         {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: 'bx bxl-github'},
       ],
       tech: [
-        //html, css3, bootstrap, javascript, dotnet core
-        {image: 'https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg'},
-        {image: 'https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg'},
-        {image: 'https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-icon.svg'},
         {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},]
     }),
   }),
@@ -135,9 +131,6 @@ const projects = [
       ],
       tech: [
         //html, css3, bootstrap, javascript, dotnet core
-        {image: 'https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg'},
-        {image: 'https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg'},
-        {image: 'https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-icon.svg'},
         {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},
       ]
     }),
