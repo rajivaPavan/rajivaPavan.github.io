@@ -2,9 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <!--    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">-->
-    <!--    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">-->
-    <!--    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">-->
     <link href="/site.webmanifest" rel="manifest">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta
@@ -12,6 +9,11 @@
             name="description"
     />
     <meta content="Pavan Pitiwaduge" name="author"/>
+    <meta property="og:title" content="About Me - Pavan Pitiwaduge">
+    <meta property="og:description" content="Official Website of Pavan Pitiwaduge">
+    <meta property="og:image" content="https://www.pavanpitiwaduge.me/assets/images/rpp-logo.png">
+    <meta property="og:url" content="https://www.pavanpitiwaduge.me">
+
     <title>Pavan Pitiwaduge</title>
 
     <!-- Google Fonts -->
@@ -19,13 +21,17 @@
           rel="stylesheet">
 
     <link href="src/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/assets/aos.css">
+    <link href="src/assets/aos.css" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZRDEHBMYX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-RZRDEHBMYX');
