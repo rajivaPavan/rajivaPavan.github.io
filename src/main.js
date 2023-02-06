@@ -18,7 +18,7 @@ class LinkTag {
         return link
     }
     //add after the title tag in the head
-    append() {
+    addAfterTitleTag() {
         const title = document.querySelector('title')
         title.insertAdjacentElement('afterend', this.create())
     }
@@ -43,7 +43,7 @@ class ScriptTag {
         return script
     }
     //add to the end of the body
-    append() {
+    addToEndOfBody() {
         const body = document.querySelector('body')
         body.insertAdjacentElement('beforeend', this.create())
     }
@@ -79,11 +79,11 @@ const env = process.env.NODE_ENV === 'development' ? 'dev' : 'prod'
 
 Object.keys(links).reverse().forEach(lib => {
     let link = links[lib][env]
-    link.append()
+    link.addAfterTitleTag()
 });
 Object.keys(scripts).forEach(lib => {
     let script  = scripts[lib][env]
-    script.append()
+    script.addToEndOfBody()
 });
 
 import {createApp} from 'vue'
