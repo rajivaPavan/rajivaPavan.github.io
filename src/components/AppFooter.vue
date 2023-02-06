@@ -1,7 +1,6 @@
 <template>
   <footer id="footer">
     <div class="container">
-<!--      <h3>Pavan Pitiwaduge</h3>-->
       <p>
         "When your intention is pure, no matter how you are judged, you will always get what you deserve.."
       </p>
@@ -9,12 +8,8 @@
   </footer>
 </template>
 <script>
-
-import SocialLinks from "./SocialLinks.vue";
-
 export default {
   name: 'AppFooter',
-  components: {SocialLinks},
 }
 </script>
 
