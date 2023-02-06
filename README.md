@@ -1,5 +1,5 @@
 # rajivaPavan.github.io
-This is live at [pavanpitiwaduge.me](pavanpitiwaduge.me)
+This is live at [pavanpitiwaduge.me](https://www.pavanpitiwaduge.me/)
 
 Core technologies used 
 
