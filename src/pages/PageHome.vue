@@ -14,12 +14,11 @@
 
   <div id="preloader"></div>
   <a class="back-to-top d-flex align-items-center justify-content-center" href="#hero"><i
-      class="bi bi-arrow-up-short"></i></a>
+      class="bx bx-up-arrow-alt"></i></a>
 </template>
 
 <script>
-
-
+import {markRaw} from "vue";
 import AppHeader from "../components/AppHeader.vue";
 import AppFooter from "../components/AppFooter.vue";
 import AppContact from "../components/AppContact.vue";
@@ -27,18 +26,24 @@ import AppPortfolio from "../components/AppPortfolio.vue";
 import AppHero from "../components/AppHero.vue";
 import AppSkills from "../components/AppSkills.vue";
 
+const reactiveSections = [
+  {name: 'Home', hash: '#hero', icon: 'bx bx-home', app_component: AppHero},
+  {name: 'Portfolio', hash: '#portfolio', icon: 'bx bx-book-content', app_component: AppPortfolio},
+  {name: 'Skills', hash: '#skills', icon: 'bx bx-server', app_component: AppSkills},
+  {name: 'Contact', hash: '#contact', icon: 'bx bx-envelope', app_component: AppContact},
+  {name: 'Footer', app_component: AppFooter}
+];
+
+const sections = reactiveSections.map(section => {
+  return markRaw(section);
+});
+
 export default {
   name: "PageHome",
   components: {AppHeader, AppFooter, AppSkills, AppPortfolio, AppContact, AppHero},
   data() {
     return {
-      sections: [
-        {name: 'Home', hash: '#hero', icon: 'bx bx-home', app_component: AppHero},
-        {name: 'Portfolio', hash: '#portfolio', icon: 'bx bx-book-content', app_component: AppPortfolio},
-        {name: 'Skills', hash: '#skills', icon: 'bx bx-server', app_component: AppSkills},
-        {name: 'Contact', hash: '#contact', icon: 'bx bx-envelope', app_component: AppContact},
-        {name: 'Footer', app_component: AppFooter}
-      ]
+      sections
     }
   },
   methods: {

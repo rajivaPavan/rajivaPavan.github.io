@@ -1,6 +1,6 @@
 <template>
   <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-lg-none" @click="navToggle()" ref="navToggleBtn"></i>
+  <i class="bx bx-menu mobile-nav-toggle d-lg-none py-3" @click="navToggle()" ref="navToggleBtn"></i>
 
   <header id="header" class="d-flex flex-column justify-content-center">
     <nav id="navbar" class="navbar nav-menu">
@@ -29,8 +29,8 @@ export default {
   methods:{
     navToggle(){
       document.querySelector('body').classList.toggle('mobile-nav-active')
-      this.$refs.navToggleBtn.classList.toggle('bi-list')
-      this.$refs.navToggleBtn.classList.toggle('bi-x')
+      this.$refs.navToggleBtn.classList.toggle('bx-menu')
+      this.$refs.navToggleBtn.classList.toggle('bx-x')
     }
   },
   mounted() {
@@ -192,7 +192,7 @@ export default {
   line-height: 0;
   cursor: pointer;
   border-radius: 50px;
-  padding: 5px;
+  padding: 5px 2px;
 }
 
 .mobile-nav-toggle i {
@@ -209,7 +209,7 @@ export default {
 
 .mobile-nav-active .mobile-nav-toggle {
   color: var(--color-text-in-primary);
-  background-color: var(--color-primary-bright);
+  background: var(--color-primary-bright);
 }
 
 </style>
