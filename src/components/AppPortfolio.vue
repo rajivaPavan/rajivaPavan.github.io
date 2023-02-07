@@ -20,20 +20,7 @@
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
         <div v-for="col in [...Array(3).keys()]" class="col-lg-4 col-md-6">
           <div v-for="item in getPortfolioColItems(col)" class="portfolio-item">
-            <div class="portfolio-wrap">
-              <img :src="item.image" alt="" class="img-fluid">
-              <div class="portfolio-info">
-                <h4>{{ item.name }}</h4>
-                <p>{{ item.category.name }}</p>
-                <div class="portfolio-links">
-                  <a v-for="link in item.details.links" :href="link.url" target="_blank"><i :class="link.icon"></i></a>
-                </div>
-                <div v-if="item.details.tech" class="technologies">
-                  <img v-for="tech in item.details.tech" :src="tech.image" alt="" class="img-thumbnail border-0"
-                       loading="lazy">
-                </div>
-              </div>
-            </div>
+            <AppPortfolioItem :item="item"/>
           </div>
         </div>
       </div>
@@ -47,6 +34,7 @@ import KardsApp from '/assets/images/portfolio/app-kards.jpg';
 import IntelliSurgery from '/assets/images/portfolio/web-intellisurgery.png';
 import TranslatorApp from '/assets/images/portfolio/app-translator.png';
 import PortfolioWeb from '/assets/images/portfolio/web-portfolio.png';
+import AppPortfolioItem from "./AppPortfolioItem.vue";
 
 class Portfolio {
   static FilterAll = {name: 'All', filter: '*'};
@@ -167,6 +155,7 @@ const projects = [
 
 export default {
   name: 'AppPortfolio',
+  components: {AppPortfolioItem},
   data() {
     return {
       currentFilter: Portfolio.FilterAll,
@@ -242,141 +231,4 @@ export default {
   margin-right: 0;
 }
 
-.portfolio .portfolio-wrap {
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  background: var(--color-background-mute);
-}
-
-.portfolio .portfolio-wrap::before {
-  content: "";
-  background: var(--color-background-filter);
-  position: absolute;
-  left: 30px;
-  right: 30px;
-  top: 30px;
-  bottom: 30px;
-  transition: all ease-in-out 0.3s;
-  z-index: 2;
-  opacity: 0;
-}
-
-.portfolio .portfolio-wrap .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  z-index: 3;
-  transition: all ease-in-out 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.portfolio .portfolio-wrap .portfolio-info::before {
-  display: block;
-  content: "";
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  top: 35px;
-  left: 35px;
-  border-top: 3px solid var(--color-border-strong);
-  border-left: 3px solid var(--color-border-strong);
-  transition: all 0.5s ease 0s;
-  z-index: 9994;
-}
-
-.portfolio .portfolio-wrap .portfolio-info::after {
-  display: block;
-  content: "";
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  bottom: 35px;
-  right: 35px;
-  border-bottom: 3px solid var(--color-border-strong);
-  border-right: 3px solid var(--color-border-strong);
-  transition: all 0.5s ease 0s;
-  z-index: 9994;
-}
-
-.portfolio .portfolio-wrap .portfolio-info h4, .portfolio .portfolio-wrap .portfolio-info p {
-  color: var(--color-text);
-  background-color: var(--color-background);
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.portfolio .portfolio-wrap .portfolio-info h4 {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.portfolio .portfolio-wrap .portfolio-info p {
-  color: var(--color-text);
-  background-color: var(--color-background);
-  font-size: 14px;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.portfolio .portfolio-wrap .portfolio-links {
-  text-align: center;
-  z-index: 4;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a {
-  color: var(--color-text);
-  margin: 0 2px;
-  font-size: 28px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #148af9;
-}
-
-.portfolio .portfolio-wrap:hover::before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-info {
-  opacity: 1;
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-info::before {
-  top: 15px;
-  left: 15px;
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-info::after {
-  bottom: 15px;
-  right: 15px;
-}
-
-.portfolio .portfolio-wrap .technologies {
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.technologies {
-  background-color: transparent;
-}
-
-.technologies img {
-  height: 40px;
-  margin: 5px;
-}
 </style>
