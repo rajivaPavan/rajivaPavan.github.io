@@ -138,19 +138,6 @@ const projects = [
       ]
     })
   }),
-  new PortfolioItem({
-    name: 'Portfolio Website',
-    category: Portfolio.FilterWeb,
-    image: PortfolioWeb,
-    details: new PortfolioItemDetails({
-      links: [
-        {url: 'https://github.com/rajivaPavan/rajivaPavan.github.io', icon: 'bx bxl-github'},],
-      tech: [
-        //vue3, tailwindcss
-        {image: 'https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg'},
-      ]
-    })
-  })
 ];
 
 export default {
