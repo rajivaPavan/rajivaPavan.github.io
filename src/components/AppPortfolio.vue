@@ -18,10 +18,11 @@
       </div>
 
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-        <div v-for="col in [...Array(3).keys()]" class="col-lg-4 col-md-6">
-          <div v-for="item in getPortfolioColItems(col)" class="portfolio-item">
+        <div v-for="col in [...Array(3).keys()]" class="col-12 col-md-4">
+          <TransitionGroup tag="div" name="fade" v-for="item in getPortfolioColItems(col)" class="portfolio-item"
+            :key="item">
             <AppPortfolioItem :item="item"/>
-          </div>
+          </TransitionGroup>
         </div>
       </div>
     </div>
@@ -33,7 +34,6 @@ import DocuSignWeb from '/assets/images/portfolio/web-docusign.png';
 import KardsApp from '/assets/images/portfolio/app-kards.jpg';
 import IntelliSurgery from '/assets/images/portfolio/web-intellisurgery.png';
 import TranslatorApp from '/assets/images/portfolio/app-translator.png';
-import PortfolioWeb from '/assets/images/portfolio/web-portfolio.png';
 import AppPortfolioItem from "./AppPortfolioItem.vue";
 import {imageUrls} from "../store/urls.js";
 
@@ -218,5 +218,33 @@ export default {
 .portfolio #portfolio-filters li:last-child {
   margin-right: 0;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
+}
+
+/* 1. declare transition */
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* 2. declare enter from and leave to state */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01) translate(30px, 0);
+}
+
+/* 3. ensure leaving items are taken out of layout flow so that moving
+      animations can be calculated correctly. */
+.fade-leave-active {
+  position: absolute;
+}
+
 
 </style>
