@@ -2,7 +2,7 @@
   <footer id="footer">
     <div class="container">
       <p>
-        "When your intention is pure, no matter how you are judged, you will always get what you deserve.."
+        Crafted by Pavan Pitiwaduge with Vue Js
       </p>
     </div>
   </footer>
