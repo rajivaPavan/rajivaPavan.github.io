@@ -36,33 +36,7 @@ import IntelliSurgery from '/assets/images/portfolio/web-intellisurgery.png';
 import TranslatorApp from '/assets/images/portfolio/app-translator.png';
 import AppPortfolioItem from "./AppPortfolioItem.vue";
 import {imageUrls} from "../store/urls.js";
-
-class Portfolio {
-  static FilterAll = {name: 'All', filter: '*'};
-  static FilterApp = {name: 'App', filter: '.filter-app'};
-  static FilterWeb = {name: 'Web', filter: '.filter-web'};
-
-  static filter = (item, filter) => {
-    if (filter.filter === Portfolio.FilterAll.filter) return true;
-    return item.category.filter === filter.filter;
-  }
-}
-
-class PortfolioItem {
-  constructor({name, category, image, details}) {
-    this.name = name;
-    this.category = category;
-    this.image = image;
-    this.details = details;
-  }
-}
-
-class PortfolioItemDetails {
-  constructor({links, tech}) {
-    this.links = links;
-    this.tech = tech;
-  }
-}
+import {Portfolio, PortfolioItem, PortfolioItemDetails} from "../entities/portfolio.js";
 
 const projects = [
   new PortfolioItem({
