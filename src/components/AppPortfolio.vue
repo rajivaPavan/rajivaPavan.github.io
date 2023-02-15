@@ -1,5 +1,5 @@
 <template>
-  <section id="portfolio" class="portfolio section-bg">
+  <section id="portfolio" class="portfolio section-bg" ref="portfolio">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
@@ -17,13 +17,13 @@
         </div>
       </div>
 
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-        <div v-for="col in [...Array(3).keys()]" class="col-12 col-md-4">
-          <TransitionGroup tag="div" name="fade" v-for="item in getPortfolioColItems(col)" class="portfolio-item"
-            :key="item">
+      <div class="portfolio-container-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <TransitionGroup name="fade" tag="div"
+                          id="portfolio-container">
+          <div v-for="item in portfolioItemsFiltered" :key="item" class="portfolio-item">
             <AppPortfolioItem :item="item"/>
-          </TransitionGroup>
-        </div>
+          </div>
+        </TransitionGroup>
       </div>
     </div>
   </section>
@@ -147,78 +147,131 @@ export default {
   },
   computed: {
     portfolioItemsFiltered() {
-      return this.portfolioItems.filter(item => Portfolio.filter(item, this.currentFilter));
+      let arr= this.portfolioItems.filter(item => Portfolio.filter(item, this.currentFilter));
+      return [...arr, ...arr, ...arr];
     }
   },
 }
 </script>
-<style scoped>
-.portfolio .section-title p {
-  font-style: italic;
-  color: var(--color-text);
+<style lang="scss" scoped>
+// Define color variables
+$color-background: var(--color-background);
+$color-border: var(--color-border);
+$color-primary-bright: var(--color-primary-bright);
+$color-text: var(--color-text);
+$color-link-hover: var(--color-link-hover);
+
+.portfolio {
+  .section-title {
+    p {
+      font-style: italic;
+      color: $color-text;
+    }
+  }
+
+  #portfolio-filters {
+    margin: 0 auto 25px auto;
+    list-style: none;
+    text-align: center;
+    background: $color-background;
+    border-radius: 50px;
+    padding: 2px 15px;
+
+    li {
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      text-transform: uppercase;
+      color: $color-text;
+      margin-bottom: 5px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover,
+      &.filter-active {
+        color: $color-link-hover;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .portfolio-container-wrapper{
+    border-radius: 10px;
+    border: 1px solid $color-border;
+    padding: 10px;
+  }
+  #portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    max-height: 75vh;
+    border-radius: 10px;
+
+    .portfolio-item{
+      width: 33%;
+      margin-bottom:10px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+
+  // style scrollbar for desktop view. Move scrollbar a little bit to up from bottom
+  @media (min-width: 768px) {
+    #portfolio-container {
+      &::-webkit-scrollbar {
+        height: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $color-primary-bright;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  // for mobile view one column of portfolio items is shown
+  @media (max-width: 768px) {
+    .portfolio-container-wrapper{
+      padding: 10px 0;
+    }
+    #portfolio-container {
+      flex-direction: row;
+      overflow-y: auto;
+      max-height: 70vh;
+      margin: 0 5px;
+      .portfolio-item{
+        width: 100%;
+      }
+    }
+  }
+
+  // Define fade animations
+  .fade-move,
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+    transform: scaleY(0.01) translate(30px, 0);
+  }
+
+  .fade-leave-active {
+    position: absolute;
+  }
 }
-
-.portfolio .portfolio-item {
-  margin-bottom: 30px;
-}
-
-.portfolio #portfolio-filters {
-  margin: 0 auto 25px auto;
-  list-style: none;
-  text-align: center;
-  background: var(--color-background);
-  border-radius: 50px;
-  padding: 2px 15px;
-}
-
-.portfolio #portfolio-filters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--color-text);
-  margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
-}
-
-.portfolio #portfolio-filters li:hover,
-.portfolio #portfolio-filters li.filter-active {
-  color: var(--color-link-hover);
-}
-
-.portfolio #portfolio-filters li:last-child {
-  margin-right: 0;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(100px, auto);
-  grid-gap: 10px;
-}
-
-/* 1. declare transition */
-.fade-move,
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
-}
-
-/* 2. declare enter from and leave to state */
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: scaleY(0.01) translate(30px, 0);
-}
-
-/* 3. ensure leaving items are taken out of layout flow so that moving
-      animations can be calculated correctly. */
-.fade-leave-active {
-  position: absolute;
-}
-
-
 </style>

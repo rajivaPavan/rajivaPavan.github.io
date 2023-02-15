@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio-wrap">
-    <img :src="item.image" alt="" class="img-fluid img-thumbnail">
+    <img :src="item.image" :alt="item.name" class="img-fluid img-thumbnail">
     <div class="portfolio-info">
       <h4>{{ item.name }}</h4>
       <p>{{ item.category.name }}</p>
