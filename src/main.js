@@ -78,8 +78,7 @@ if(env === 'dev'){
     import('bootstrap/dist/css/bootstrap.min.css').then(() => {
         console.log('bootstrap css loaded')
     });
-
-
+    import('bootstrap/dist/js/bootstrap.bundle.js').then(() => {});
 }
 
 Object.keys(links).reverse().forEach(lib => {
