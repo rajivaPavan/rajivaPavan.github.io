@@ -52,7 +52,6 @@ class ScriptTag {
 //objects of links to be added to the head
 const links = {
     bootstrap: {
-        dev: new LinkTag({href:'src/assets/vendor/bootstrap/css/bootstrap.min.css'}),
         prod: new LinkTag({
             href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css',
             integrity: 'sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=='
@@ -67,7 +66,6 @@ const links = {
 }
 const scripts = {
     bootstrap: {
-        dev: new ScriptTag({src:'src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'}),
         prod: new ScriptTag({
             href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js',
             integrity: 'sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA=='
@@ -75,15 +73,26 @@ const scripts = {
     }
 }
 
-const env = process.env.NODE_ENV === 'development' ? 'dev' : 'prod'
+const env = process.env.NODE_ENV === 'development' ? 'dev' : 'prod';
+if(env === 'dev'){
+    import('bootstrap/dist/css/bootstrap.min.css').then(() => {
+        console.log('bootstrap css loaded')
+    });
+
+
+}
 
 Object.keys(links).reverse().forEach(lib => {
     let link = links[lib][env]
-    link.addAfterTitleTag()
+    if (link){
+        link.addAfterTitleTag()
+    }
 });
 Object.keys(scripts).forEach(lib => {
     let script  = scripts[lib][env]
-    script.addToEndOfBody()
+    if (script){
+        script.addToEndOfBody()
+    }
 });
 
 import {createApp} from 'vue'
