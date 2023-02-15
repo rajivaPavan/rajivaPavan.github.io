@@ -1,4 +1,4 @@
-import initAOS from "./aos.js";
+import initAOS from "./assets/js/aos.js";
 
 (function () {
     "use strict";
