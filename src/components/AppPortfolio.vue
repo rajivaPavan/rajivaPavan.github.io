@@ -35,6 +35,7 @@ import IntelliSurgery from '/assets/images/portfolio/web-intellisurgery.png';
 import TranslatorApp from '/assets/images/portfolio/app-translator.png';
 import PortfolioWeb from '/assets/images/portfolio/web-portfolio.png';
 import AppPortfolioItem from "./AppPortfolioItem.vue";
+import {imageUrls} from "../store/urls.js";
 
 class Portfolio {
   static FilterAll = {name: 'All', filter: '*'};
@@ -75,10 +76,10 @@ const projects = [
       ],
       tech: [
         //flutter, webrtc, dotnet core, signalr, azure
-        {image: 'https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg'},
-        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},
-        {image: 'https://webrtc.github.io/webrtc-org/assets/images/webrtc-logo-vert-retro-dist.svg'},
-        {image: 'https://img.stackshare.io/service/4013/SignalR-logo.png'}
+        {image: imageUrls.flutter},
+        {image: imageUrls.dotNetCore},
+        {image: imageUrls.webrtc},
+        {image: imageUrls.signalR},
       ]
     })
   }),
@@ -91,7 +92,7 @@ const projects = [
         {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: 'bx bxl-github'},
       ],
       tech: [
-        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},]
+        {image: imageUrls.dotNetCore},]
     }),
   }),
   new PortfolioItem({
@@ -105,7 +106,7 @@ const projects = [
       ],
       tech: [
         //  vue3
-        {image: 'https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg'},
+        {image: imageUrls.vue_small},
       ]
     }),
   }),
@@ -119,7 +120,7 @@ const projects = [
       ],
       tech: [
         //html, css3, bootstrap, javascript, dotnet core
-        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},
+        {image: imageUrls.dotNetCore},
       ]
     }),
   }),
@@ -133,8 +134,8 @@ const projects = [
       ],
       tech: [
         //kolin, jetpack compose
-        {image: 'https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg'},
-        {image: 'https://www.vectorlogo.zone/logos/android/android-icon.svg'},
+        {image: imageUrls.kotlin},
+        {image: imageUrls.android},
       ]
     })
   }),

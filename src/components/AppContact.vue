@@ -32,6 +32,7 @@
 </template>
 <script>
 import SocialLinks from "./SocialLinks.vue";
+import {my} from "../store/store";
 
 export default {
   name: 'AppContact',
@@ -39,11 +40,11 @@ export default {
   data() {
     return {
       contactMethods: [
-        {name: 'email', value: 'pavanpitiwaduge@outlook.com', icon: 'bx bx-envelope', contactClass : 'email',
+        {name: 'email', value: my.email, icon: 'bx bx-envelope', contactClass : 'email',
         contact: () => {
           window.open('mailto:' + this.contactMethods[0].value);
         }},
-        {name: 'phone', value: '+94 77 540 5059', icon: 'bx bx-phone', contactClass : 'phone', contact: () => {
+        {name: 'phone', value: my.phone, icon: 'bx bx-phone', contactClass : 'phone', contact: () => {
           window.open('tel:'+ this.contactMethods[1].value);
         }}
           ]

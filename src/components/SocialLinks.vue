@@ -8,6 +8,8 @@
   </div>
 </template>
 <script>
+import {my} from "../store/store";
+
 const SocialLink = (name, link, icon) => {
   return {
     name: name, link: link, icon: icon
@@ -17,13 +19,14 @@ const SocialLink = (name, link, icon) => {
 export default {
   name: 'SocialLinks',
   data() {
+    const socials = my.socials;
     return{
       socialLinks: [
-        SocialLink('twitter', 'https://twitter.com/RajivaPavan', 'bx bxl-twitter'),
-        SocialLink('facebook', 'https://www.facebook.com/pavan.pitiwaduge', 'bx bxl-facebook'),
-        SocialLink('instagram', 'https://www.instagram.com/_pavan.0001/', 'bx bxl-instagram'),
-        SocialLink('linkedin', 'https://www.linkedin.com/in/pavan-pitiwaduge/', 'bx bxl-linkedin'),
-          SocialLink('github', 'https://github.com/rajivaPavan', 'bx bxl-github'),
+        SocialLink('twitter', socials.twitter, 'bx bxl-twitter'),
+        SocialLink('facebook', socials.facebook, 'bx bxl-facebook'),
+        SocialLink('instagram', socials.instagram, 'bx bxl-instagram'),
+        SocialLink('linkedin', socials.linkedin, 'bx bxl-linkedin'),
+          SocialLink('github', socials.github, 'bx bxl-github'),
       ]
     }
   }
