@@ -4,7 +4,7 @@
     <img :src="item.image" :alt="item.name" class="img-fluid img-thumbnail">
     <div class="portfolio-info">
       <h4>{{ item.name }}</h4>
-      <p>{{ item.category.name }}</p>
+      <p>{{ item.category.name}}</p>
       <div class="portfolio-links">
         <a v-for="link in item.details.links" :href="link.url" target="_blank"><i :class="link.icon"></i></a>
       </div>
@@ -24,12 +24,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-h4{
+
+//hide .topic in desktop
+.text{
   color: var(--color-text);
   background-color: var(--color-background);
 }
-//hide .topic in desktop
 .topic{
+  @extend .text;
+  margin-top: 5px;
   @media (min-width: 768px){
     display: none;
   }
@@ -116,14 +119,19 @@ h4{
       border-right: 3px solid var(--color-border-strong);
     }
     h4, p {
-      //extend from h4 in parent
-      @extend h4;
+      @extend .text;
       padding: 5px;
       border-radius: 5px;
     }
     h4 {
       font-size: 20px;
       font-weight: 600;
+    }
+    //hide h4 in mobile
+    @media (max-width: 767px){
+      h4{
+        display: none;
+      }
     }
 
     p {

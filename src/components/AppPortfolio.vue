@@ -216,6 +216,8 @@ $color-link-hover: var(--color-link-hover);
   // style scrollbar for desktop view. Move scrollbar a little bit to up from bottom
   @media (min-width: 768px) {
     #portfolio-container {
+      align-content: start;
+
       &::-webkit-scrollbar {
         height: 5px;
       }
@@ -241,7 +243,8 @@ $color-link-hover: var(--color-link-hover);
       flex-direction: row;
       overflow-y: auto;
       max-height: 70vh;
-      margin: 0 5px;
+      margin: -5px 5px 0;
+
       .portfolio-item{
         width: 100%;
       }
