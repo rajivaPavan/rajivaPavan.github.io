@@ -2,7 +2,7 @@ export const my = {
     name: 'Pavan Pitiwaduge',
     fullName: 'Rajiva Pavan Pitiwaduge',
     nameWithInitials: 'R.P.Pitiwaduge',
-    email: 'pavanpitiwaduge@outlook,com',
+    email: 'pavanpitiwaduge@outlook.com',
     phone: '+94 77 540 5059',
     titles: ['an Engineering Student', 'a Developer', 'a Freelancer'],
     socials: {
