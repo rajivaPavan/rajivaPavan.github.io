@@ -1,4 +1,5 @@
 <template>
+  <h4 class="text-center topic">{{ item.name }}</h4>
   <div class="portfolio-wrap">
     <img :src="item.image" :alt="item.name" class="img-fluid img-thumbnail">
     <div class="portfolio-info">
@@ -22,131 +23,139 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+h4{
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+//hide .topic in desktop
+.topic{
+  @media (min-width: 768px){
+    display: none;
+  }
+}
 .portfolio-wrap {
   transition: 0.3s;
   position: relative;
   overflow: hidden;
   z-index: 1;
   background: var(--color-background-mute);
-}
 
-.portfolio-wrap::before {
-  content: "";
-  background: var(--color-background-filter);
-  position: absolute;
-  left: 30px;
-  right: 30px;
-  top: 30px;
-  bottom: 30px;
-  transition: all ease-in-out 0.3s;
-  z-index: 2;
-  opacity: 0;
-}
+  &::before {
+    content: "";
+    background: var(--color-background-filter);
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 30px;
+    bottom: 30px;
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+  }
 
-.portfolio-wrap .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  z-index: 3;
-  transition: all ease-in-out 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  &:hover::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+  }
 
-.portfolio-wrap .portfolio-info::before {
-  display: block;
-  content: "";
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  top: 35px;
-  left: 35px;
-  border-top: 3px solid var(--color-border-strong);
-  border-left: 3px solid var(--color-border-strong);
-  transition: all 0.5s ease 0s;
-  z-index: 9994;
-}
+  &:hover{
+    .portfolio-info {
+      opacity: 1;
 
-.portfolio-wrap .portfolio-info::after {
-  display: block;
-  content: "";
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  bottom: 35px;
-  right: 35px;
-  border-bottom: 3px solid var(--color-border-strong);
-  border-right: 3px solid var(--color-border-strong);
-  transition: all 0.5s ease 0s;
-  z-index: 9994;
-}
-.portfolio-wrap .portfolio-info h4, .portfolio-wrap .portfolio-info p {
-  color: var(--color-text);
-  background-color: var(--color-background);
-  padding: 5px;
-  border-radius: 5px;
-}
+      &::before {
+        top: 15px;
+        left: 15px;
+      }
 
-.portfolio-wrap .portfolio-info h4 {
-  font-size: 20px;
-  font-weight: 600;
-}
+      &::after {
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+  }
 
-.portfolio-wrap .portfolio-info p {
-  color: var(--color-text);
-  background-color: var(--color-background);
-  font-size: 14px;
-  text-transform: uppercase;
-  margin: 0;
-}
+  .portfolio-info {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.portfolio-wrap .portfolio-links a {
-  color: var(--color-text);
-  margin: 0 2px;
-  font-size: 28px;
-  display: inline-block;
-  transition: 0.3s;
-}
-.portfolio-wrap .portfolio-links a:hover {
-  color: var(--color-primary-bright);
-}
-.portfolio .portfolio-wrap:hover::before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-}
+    &::before, &::after{
+      display: block;
+      content: "";
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      transition: all 0.5s ease 0s;
+      z-index: 9994;
+    }
+    &::before {
+      top: 35px;
+      left: 35px;
+      border-top: 3px solid var(--color-border-strong);
+      border-left: 3px solid var(--color-border-strong);
+    }
 
-.portfolio-wrap:hover .portfolio-info {
-  opacity: 1;
-}
+    &::after {
+      bottom: 35px;
+      right: 35px;
+      border-bottom: 3px solid var(--color-border-strong);
+      border-right: 3px solid var(--color-border-strong);
+    }
+    h4, p {
+      //extend from h4 in parent
+      @extend h4;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    h4 {
+      font-size: 20px;
+      font-weight: 600;
+    }
 
-.portfolio-wrap:hover .portfolio-info::before {
-  top: 15px;
-  left: 15px;
-}
+    p {
+      color: var(--color-text);
+      background-color: var(--color-background);
+      font-size: 14px;
+      text-transform: uppercase;
+      margin: 0;
+    }
 
-.portfolio-wrap:hover .portfolio-info::after {
-  bottom: 15px;
-  right: 15px;
-}
+    .portfolio-links a {
+      color: var(--color-text);
+      margin: 0 2px;
+      font-size: 28px;
+      display: inline-block;
+      transition: 0.3s;
 
-.portfolio-wrap .technologies {
-  display: inline-block;
-  transition: 0.3s;
-  background-color: transparent;
-}
+      &:hover {
+        color: var(--color-primary-bright);
+      }
+    }
 
-.portfolio-wrap .technologies img {
-  height: 40px;
-  margin: 5px;
+    .technologies {
+      display: inline-block;
+      transition: 0.3s;
+      background-color: transparent;
+
+      img {
+        height: 40px;
+        margin: 5px;
+      }
+    }
+  }
 }
 </style>

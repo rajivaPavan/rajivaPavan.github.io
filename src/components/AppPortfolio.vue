@@ -136,19 +136,10 @@ export default {
     isFilterActive(filter) {
       return this.currentFilter === filter;
     },
-    getPortfolioColItems(col) {
-      const items = this.portfolioItemsFiltered;
-      const colItems = [];
-      for (let i = col; i < items.length; i += 3) {
-        colItems.push(items[i]);
-      }
-      return colItems;
-    }
   },
   computed: {
     portfolioItemsFiltered() {
-      let arr= this.portfolioItems.filter(item => Portfolio.filter(item, this.currentFilter));
-      return [...arr, ...arr, ...arr];
+      return this.portfolioItems.filter(item => Portfolio.filter(item, this.currentFilter));
     }
   },
 }
