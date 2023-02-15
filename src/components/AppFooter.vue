@@ -4,12 +4,16 @@
       <p>
         Crafted by Pavan Pitiwaduge with Vue Js
       </p>
+      <ThemeSwitch/>
     </div>
   </footer>
 </template>
 <script>
+import ThemeSwitch from "./ThemeSwitch.vue";
+
 export default {
   name: 'AppFooter',
+  components: {ThemeSwitch},
 }
 </script>
 
@@ -29,7 +33,7 @@ export default {
   font-size: 15px;
   font-style: italic;
   padding: 0 10px;
-  margin: 0 0 40px 0;
+  margin: 0 0 15px 0;
 }
 
 /*Mobile view*/
@@ -38,4 +42,5 @@ export default {
     padding: 0;
   }
 }
+
 </style>
