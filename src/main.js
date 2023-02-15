@@ -89,5 +89,9 @@ Object.keys(scripts).forEach(lib => {
 import {createApp} from 'vue'
 import App from './App.vue'
 import './assets/main.css'
+import initIcons from "./assets/js/icons.js";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
-createApp(App).mount('#app')
+initIcons();
+
+createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
