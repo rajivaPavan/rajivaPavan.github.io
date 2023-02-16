@@ -6,7 +6,9 @@
       <h4>{{ item.name }}</h4>
       <p>{{ item.category.name}}</p>
       <div class="portfolio-links">
-        <a v-for="link in item.details.links" :href="link.url" target="_blank"><i :class="link.icon"></i></a>
+        <a v-for="link in item.details.links" :href="link.url" target="_blank">
+          <font-awesome-icon :icon="link.icon"/>
+        </a>
       </div>
       <div v-if="item.details.tech" class="technologies">
         <img v-for="tech in item.details.tech" :src="tech.image" alt="" class="img-thumbnail border-0"

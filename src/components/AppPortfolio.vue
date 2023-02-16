@@ -37,6 +37,8 @@ import TranslatorApp from '/assets/images/portfolio/app-translator.png';
 import AppPortfolioItem from "./AppPortfolioItem.vue";
 import {imageUrls} from "../store/urls.js";
 import {Portfolio, PortfolioItem, PortfolioItemDetails} from "../entities/portfolio.js";
+import {faGithub, faGooglePlay} from "@fortawesome/free-brands-svg-icons";
+import {faEarth} from "@fortawesome/free-solid-svg-icons";
 
 const projects = [
   new PortfolioItem({
@@ -45,8 +47,8 @@ const projects = [
     image: KardsApp,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://play.google.com/store/apps/details?id=games.kardsapp.cardgame', icon: 'bx bxl-play-store'},
-        {url: 'https://www.kardsapp.games', icon: 'bx bx-world'},
+        {url: 'https://play.google.com/store/apps/details?id=games.kardsapp.cardgame', icon: faGooglePlay},
+        {url: 'https://www.kardsapp.games', icon: faEarth},
       ],
       tech: [
         //flutter, webrtc, dotnet core, signalr, azure
@@ -63,7 +65,7 @@ const projects = [
     image: DocuSignWeb,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: 'bx bxl-github'},
+        {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: faGithub},
       ],
       tech: [
         {image: imageUrls.dotNetCore},]
@@ -75,8 +77,8 @@ const projects = [
     image: SOWeb,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://github.com/SpeechOlympiadXV/speecholympiadxv.github.io', icon: 'bx bxl-github'},
-        {url: 'https://speecholympiadxv.live/', icon: 'bx bx-world'},
+        {url: 'https://github.com/SpeechOlympiadXV/speecholympiadxv.github.io', icon: faGithub},
+        {url: 'https://speecholympiadxv.live/', icon: faEarth},
       ],
       tech: [
         //  vue3
@@ -90,7 +92,7 @@ const projects = [
     image: IntelliSurgery,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://github.com/rajivaPavan/IntelliSurgery', icon: 'bx bxl-github'},
+        {url: 'https://github.com/rajivaPavan/IntelliSurgery', icon: faGithub},
       ],
       tech: [
         //html, css3, bootstrap, javascript, dotnet core
@@ -104,7 +106,7 @@ const projects = [
     image: TranslatorApp,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://github.com/rajivaPavan/TranslatorApp', icon: 'bx bxl-github'},
+        {url: 'https://github.com/rajivaPavan/TranslatorApp', icon: faGithub},
       ],
       tech: [
         //kolin, jetpack compose

@@ -25,12 +25,13 @@ import AppContact from "../components/AppContact.vue";
 import AppPortfolio from "../components/AppPortfolio.vue";
 import AppHero from "../components/AppHero.vue";
 import AppSkills from "../components/AppSkills.vue";
+import {faBriefcase, faHome, faLaptopCode, faPhoneAlt,} from "@fortawesome/free-solid-svg-icons";
 
 const reactiveSections = [
-  {name: 'Home', hash: '#hero', icon: 'bx bx-home', app_component: AppHero},
-  {name: 'Portfolio', hash: '#portfolio', icon: 'bx bx-book-content', app_component: AppPortfolio},
-  {name: 'Skills', hash: '#skills', icon: 'bx bx-server', app_component: AppSkills},
-  {name: 'Contact', hash: '#contact', icon: 'bx bx-envelope', app_component: AppContact},
+  {name: 'Home', hash: '#hero', icon: faHome, app_component: AppHero},
+  {name: 'Portfolio', hash: '#portfolio', icon: faBriefcase, app_component: AppPortfolio},
+  {name: 'Skills', hash: '#skills', icon: faLaptopCode, app_component: AppSkills},
+  {name: 'Contact', hash: '#contact', icon: faPhoneAlt, app_component: AppContact},
   {name: 'Footer', app_component: AppFooter}
 ];
 

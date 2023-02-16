@@ -1,14 +1,16 @@
 <template>
   <div class="social-links">
-    <div class="social-icon-container" v-for="social in socialLinks">
-      <a  :class="social.name" :href="social.link" target="_blank">
-        <i :class="social.icon"></i>
+    <div v-for="social in socialLinks" class="social-icon-container">
+      <a :class="social.name" :href="social.link" target="_blank">
+        <font-awesome-icon :icon="social.icon"/>
       </a>
     </div>
   </div>
 </template>
 <script>
 import {my} from "../store/store";
+import {faFacebookF, faGithub, faInstagram, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const SocialLink = (name, link, icon) => {
   return {
@@ -18,15 +20,16 @@ const SocialLink = (name, link, icon) => {
 
 export default {
   name: 'SocialLinks',
+  components: {FontAwesomeIcon},
   data() {
     const socials = my.socials;
-    return{
+    return {
       socialLinks: [
-        SocialLink('twitter', socials.twitter, 'bx bxl-twitter'),
-        SocialLink('facebook', socials.facebook, 'bx bxl-facebook'),
-        SocialLink('instagram', socials.instagram, 'bx bxl-instagram'),
-        SocialLink('linkedin', socials.linkedin, 'bx bxl-linkedin'),
-          SocialLink('github', socials.github, 'bx bxl-github'),
+        SocialLink('twitter', socials.twitter, faTwitter),
+        SocialLink('facebook', socials.facebook, faFacebookF),
+        SocialLink('instagram', socials.instagram, faInstagram),
+        SocialLink('linkedin', socials.linkedin, faLinkedinIn),
+        SocialLink('github', socials.github, faGithub),
       ]
     }
   }

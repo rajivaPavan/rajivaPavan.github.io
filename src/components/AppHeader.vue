@@ -7,7 +7,7 @@
       <ul>
         <li  v-for="(section,i) in sections"  >
           <a v-if="section.hash" :href="section.hash" class="nav-link" :class="i===0 ? ' active' :''">
-            <i :class="section.icon"></i> <span>{{ section.name }}</span>
+            <font-awesome-icon :icon="section.icon"/> <span>{{ section.name }}</span>
           </a>
         </li>
       </ul>
@@ -16,7 +16,6 @@
   </header>
 </template>
 <script>
-
 
 export default {
   name: 'AppHeader',
