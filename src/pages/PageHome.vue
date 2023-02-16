@@ -13,8 +13,8 @@
 
 
   <AppPreloader/>
-  <a class="back-to-top d-flex align-items-center justify-content-center" href="#hero"><i
-      class="bx bx-up-arrow-alt"></i></a>
+  <a class="back-to-top d-flex align-items-center justify-content-center" href="#hero"><font-awesome-icon
+      icon="fas fa-arrow-up"/></a>
 </template>
 
 <script>
@@ -26,7 +26,7 @@ import AppPortfolio from "../components/AppPortfolio.vue";
 import AppHero from "../components/AppHero.vue";
 import AppSkills from "../components/AppSkills.vue";
 import AppPreloader from "../components/AppPreloader.vue";
-import {faBriefcase, faHome, faLaptopCode, faPhoneAlt,} from "@fortawesome/free-solid-svg-icons";
+import {faBriefcase, faHome, faLaptopCode, faPhoneAlt} from "@fortawesome/free-solid-svg-icons";
 
 const reactiveSections = [
   {name: 'Home', hash: '#hero', icon: faHome, app_component: AppHero},
@@ -77,5 +77,37 @@ export default {
 <style scoped>
 #main {
   background-color: var(--color-background);
+}
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #0563bb;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  color: #fff;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #0678e3;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
 }
 </style>
