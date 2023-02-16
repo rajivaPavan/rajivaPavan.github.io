@@ -25,6 +25,8 @@ body {
     font-family: "Open Sans", sans-serif;
     color: var(--color-text);
     background: var(--color-background) !important;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 a {
@@ -143,25 +145,4 @@ section {
 
 .section-title p {
     margin-bottom: 0;
-}
-
-
-@-webkit-keyframes animate-loading {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes animate-loading {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
 }
