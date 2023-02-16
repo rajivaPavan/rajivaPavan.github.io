@@ -12,7 +12,7 @@
   </main><!-- End #main -->
 
 
-  <div id="preloader"></div>
+  <AppPreloader/>
   <a class="back-to-top d-flex align-items-center justify-content-center" href="#hero"><i
       class="bx bx-up-arrow-alt"></i></a>
 </template>
@@ -25,6 +25,7 @@ import AppContact from "../components/AppContact.vue";
 import AppPortfolio from "../components/AppPortfolio.vue";
 import AppHero from "../components/AppHero.vue";
 import AppSkills from "../components/AppSkills.vue";
+import AppPreloader from "../components/AppPreloader.vue";
 import {faBriefcase, faHome, faLaptopCode, faPhoneAlt,} from "@fortawesome/free-solid-svg-icons";
 
 const reactiveSections = [
@@ -41,7 +42,7 @@ const sections = reactiveSections.map(section => {
 
 export default {
   name: "PageHome",
-  components: {AppHeader, AppFooter, AppSkills, AppPortfolio, AppContact, AppHero},
+  components: {AppPreloader, AppHeader, AppFooter, AppHero},
   data() {
     return {
       sections
@@ -54,13 +55,6 @@ export default {
     },
   },
   mounted() {
-    let preloader = document.querySelector('#preloader');
-    if (preloader) {
-      window.addEventListener('load', () => {
-        preloader.remove()
-      });
-    }
-
     /**
      * Back to top button
      */
