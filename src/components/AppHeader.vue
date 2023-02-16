@@ -1,35 +1,46 @@
 <template>
   <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bx bx-menu mobile-nav-toggle d-lg-none py-3" @click="navToggle()" ref="navToggleBtn"></i>
+  <font-awesome-icon :icon="navToggleIcon" class="mobile-nav-toggle d-lg-none" @click="navToggle()"/>
 
   <header id="header" class="d-flex flex-column justify-content-center">
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li  v-for="(section,i) in sections"  >
+        <li v-for="(section,i) in sections">
           <a v-if="section.hash" :href="section.hash" class="nav-link" :class="i===0 ? ' active' :''">
             <font-awesome-icon :icon="section.icon"/> <span>{{ section.name }}</span>
           </a>
         </li>
       </ul>
     </nav><!-- .nav-menu -->
-
   </header>
 </template>
 <script>
 
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import {faBars, faTimes} from "@fortawesome/free-solid-svg-icons";
 export default {
   name: 'AppHeader',
+  components: {FontAwesomeIcon},
   props: {
     sections: {
       type: Array,
       default: () => []
     }
   },
+  data() {
+    return {
+      menuIcon: faBars
+    }
+  },
+  computed: {
+    navToggleIcon() {
+      return this.menuIcon;
+    }
+  },
   methods:{
     navToggle(){
-      document.querySelector('body').classList.toggle('mobile-nav-active')
-      this.$refs.navToggleBtn.classList.toggle('bx-menu')
-      this.$refs.navToggleBtn.classList.toggle('bx-x')
+      document.querySelector('body').classList.toggle('mobile-nav-active');
+      this.menuIcon = this.menuIcon === faBars ? faTimes : faBars;
     }
   },
   mounted() {
@@ -58,9 +69,6 @@ export default {
   }
 }
 </script>
-
-
-
 
 <style scoped>
 
@@ -106,7 +114,9 @@ export default {
   position: relative;
   white-space: nowrap;
 }
-
+.nav-menu font-awesome-icon{
+  transition: none;
+}
 .nav-menu a,
 .nav-menu a:focus {
   display: flex;
@@ -114,7 +124,7 @@ export default {
   color: var(--color-text);
   padding: 10px 18px;
   margin-bottom: 8px;
-  transition: 0.3s;
+  transition: width 0.3s;
   font-size: 15px;
   border-radius: 50px;
   background: var(--color-background-mute);
@@ -124,7 +134,7 @@ export default {
   overflow: hidden;
 }
 
-.nav-menu a i,
+.nav-menu a font-awesome-icon,
 .nav-menu a:focus i {
   font-size: 20px;
 }
@@ -185,17 +195,13 @@ export default {
   z-index: 9998;
   border: 0;
   background: none;
-  font-size: 28px;
-  transition: all 0.4s;
   outline: none !important;
   line-height: 0;
   cursor: pointer;
   border-radius: 50px;
-  padding: 5px 2px;
-}
-
-.mobile-nav-toggle i {
-  color: var(--color-heading);
+  padding: 5px 5px;
+  color: var(--color-text);
+  font-size: 23px;
 }
 
 .mobile-nav-active {

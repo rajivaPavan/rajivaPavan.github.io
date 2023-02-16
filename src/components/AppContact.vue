@@ -15,7 +15,7 @@
             flex-lg-row justify-content-lg-between align-items-lg-center">
 
             <div v-for="method in contactMethods" :class="method.contactClass" class="mb-4 mb-lg-0" @click="method.contact()">
-              <i :class="method.icon"></i>
+              <div class="ci-container"><font-awesome-icon :icon="method.icon" class="contact-icon"/></div>
               <h4 class="text-capitalize">{{ method.name }}:</h4>
               <p>{{method.value}}</p>
             </div>
@@ -33,18 +33,20 @@
 <script>
 import SocialLinks from "./SocialLinks.vue";
 import {my} from "../store/store";
+import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 export default {
   name: 'AppContact',
-  components: {SocialLinks},
+  components: {FontAwesomeIcon, SocialLinks},
   data() {
     return {
       contactMethods: [
-        {name: 'email', value: my.email, icon: 'bx bx-envelope', contactClass : 'email',
+        {name: 'email', value: my.email, icon: faEnvelope, contactClass : 'email',
         contact: () => {
           window.open('mailto:' + this.contactMethods[0].value);
         }},
-        {name: 'phone', value: my.phone, icon: 'bx bx-phone', contactClass : 'phone', contact: () => {
+        {name: 'phone', value: my.phone, icon: faPhone, contactClass : 'phone', contact: () => {
           window.open('tel:'+ this.contactMethods[1].value);
         }}
           ]
@@ -80,18 +82,21 @@ export default {
   width: 100%;
 }
 
-.contact .info i {
-  font-size: 20px;
+.contact .info .ci-container {
   color: var(--color-primary);
   float: left;
   width: 44px;
   height: 44px;
-  background: #eef7ff;
+  background: var(--vt-c-white);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+}
+.contact-icon{
+  font-size: 20px;
+  color: var(--color-primary);
 }
 
 .contact .info h4 {

@@ -36,6 +36,7 @@
 /* semantic color variables for this project */
 :root {
     --color-background: var(--vt-c-white);
+    --color-background-inv: var(--vt-c-black);
     --color-background-soft: var(--vt-c-white-soft);
     --color-background-mute: var(--vt-c-white-mute);
     --color-background-transparent: var(--vt-c-white-transparent);
@@ -65,6 +66,7 @@
 
 [data-theme="dark"] {
     --color-background: var(--vt-c-black);
+    --color-background-inv: var(--vt-c-white);
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
     --color-background-transparent: var(--vt-c-black-transparent);
