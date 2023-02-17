@@ -15,12 +15,10 @@
   </header>
 </template>
 <script>
-
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import {faBars, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {select} from "../site";
 export default {
   name: 'AppHeader',
-  components: {FontAwesomeIcon},
   props: {
     sections: {
       type: Array,
@@ -57,7 +55,7 @@ export default {
       let position = window.scrollY + 200
       navbarLinks.forEach(navbarLink => {
         if (!navbarLink.hash) return
-        let section = document.querySelector(navbarLink.hash)
+        let section = select(navbarLink.hash)
         if (!section) return
         if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
           navbarLink.classList.add('active')

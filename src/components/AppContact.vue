@@ -34,11 +34,10 @@
 import SocialLinks from "./SocialLinks.vue";
 import {my} from "../store/store";
 import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 export default {
   name: 'AppContact',
-  components: {FontAwesomeIcon, SocialLinks},
+  components: {SocialLinks},
   data() {
     return {
       contactMethods: [

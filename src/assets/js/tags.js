@@ -64,12 +64,6 @@ export const links = {
             href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css',
             integrity: 'sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=='
         }),
-    },
-    boxIcons: {
-        dev: new LinkTag({href: 'src/assets/vendor/boxicons/css/boxicons.min.css'}),
-        prod: new LinkTag({
-            href: 'https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.9/css/boxicons.min.css',
-        }),
     }
 }
 export const scripts = {

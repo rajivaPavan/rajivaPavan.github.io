@@ -10,7 +10,6 @@
 <script>
 import {my} from "../store/store";
 import {faFacebookF, faGithub, faInstagram, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const SocialLink = (name, link, icon) => {
   return {
@@ -20,7 +19,6 @@ const SocialLink = (name, link, icon) => {
 
 export default {
   name: 'SocialLinks',
-  components: {FontAwesomeIcon},
   data() {
     const socials = my.socials;
     return {
