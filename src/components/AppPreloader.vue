@@ -1,0 +1,73 @@
+<template>
+  <div id="preloader" v-if="showLoader"></div>
+</template>
+<script>
+export default {
+  name: 'AppPreloader',
+  data() {
+    return {
+      show: true
+    }
+  },
+  computed: {
+    showLoader() {
+      return this.show;
+    }
+  },
+  mounted() {
+    window.addEventListener('load', () => {
+      this.show = false;
+    });
+  }
+}
+</script>
+<style scoped>
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #0563bb;
+  border-top-color: var(--color-background);
+  border-bottom-color: var(--color-background);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>

@@ -12,9 +12,9 @@
   </main><!-- End #main -->
 
 
-  <div id="preloader"></div>
-  <a class="back-to-top d-flex align-items-center justify-content-center" href="#hero"><i
-      class="bx bx-up-arrow-alt"></i></a>
+  <AppPreloader/>
+  <a class="back-to-top d-flex align-items-center justify-content-center" href="#hero"><font-awesome-icon
+      icon="fas fa-arrow-up"/></a>
 </template>
 
 <script>
@@ -25,12 +25,14 @@ import AppContact from "../components/AppContact.vue";
 import AppPortfolio from "../components/AppPortfolio.vue";
 import AppHero from "../components/AppHero.vue";
 import AppSkills from "../components/AppSkills.vue";
+import AppPreloader from "../components/AppPreloader.vue";
+import {faBriefcase, faHome, faLaptopCode, faPhoneAlt} from "@fortawesome/free-solid-svg-icons";
 
 const reactiveSections = [
-  {name: 'Home', hash: '#hero', icon: 'bx bx-home', app_component: AppHero},
-  {name: 'Portfolio', hash: '#portfolio', icon: 'bx bx-book-content', app_component: AppPortfolio},
-  {name: 'Skills', hash: '#skills', icon: 'bx bx-server', app_component: AppSkills},
-  {name: 'Contact', hash: '#contact', icon: 'bx bx-envelope', app_component: AppContact},
+  {name: 'Home', hash: '#hero', icon: faHome, app_component: AppHero},
+  {name: 'Portfolio', hash: '#portfolio', icon: faBriefcase, app_component: AppPortfolio},
+  {name: 'Skills', hash: '#skills', icon: faLaptopCode, app_component: AppSkills},
+  {name: 'Contact', hash: '#contact', icon: faPhoneAlt, app_component: AppContact},
   {name: 'Footer', app_component: AppFooter}
 ];
 
@@ -40,7 +42,7 @@ const sections = reactiveSections.map(section => {
 
 export default {
   name: "PageHome",
-  components: {AppHeader, AppFooter, AppSkills, AppPortfolio, AppContact, AppHero},
+  components: {AppPreloader, AppHeader, AppFooter, AppHero},
   data() {
     return {
       sections
@@ -53,13 +55,6 @@ export default {
     },
   },
   mounted() {
-    let preloader = document.querySelector('#preloader');
-    if (preloader) {
-      window.addEventListener('load', () => {
-        preloader.remove()
-      });
-    }
-
     /**
      * Back to top button
      */
@@ -80,7 +75,36 @@ export default {
 </script>
 
 <style scoped>
-#main {
-  background-color: var(--color-background);
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #0563bb;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  color: #fff;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #0678e3;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
 }
 </style>

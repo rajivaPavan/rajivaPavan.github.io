@@ -89,7 +89,7 @@ export default {
   color: var(--color-heading);
   line-height: 1;
   margin-right: 20px;
-  transition: 0.3s;
+  transition: none;
 }
 :deep(.social-links a:hover) {
   color: var(--color-link-hover);
