@@ -75,9 +75,6 @@ export default {
 </script>
 
 <style scoped>
-#main {
-  background-color: var(--color-background);
-}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

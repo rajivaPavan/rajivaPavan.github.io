@@ -45,12 +45,14 @@ export default {
   },
   mounted() {
     let navbarLinks = document.querySelectorAll('.nav-link');
-    //add the navToggle method as the click listener for navbarLinks if in mobile view
+    // Add the navToggle method as the click listener for navbarLinks if in mobile view
+    // this is to close the navbar when a link is clicked
     if (window.innerWidth <= 991) {
       navbarLinks.forEach(navbarLink => {
         navbarLink.addEventListener('click', this.navToggle)
       })
     }
+    // Add active class to navbar links when on the corresponding section
     const navbarLinksActive = () => {
       let position = window.scrollY + 200
       navbarLinks.forEach(navbarLink => {
@@ -135,8 +137,9 @@ export default {
 }
 
 .nav-menu a font-awesome-icon,
-.nav-menu a:focus i {
+.nav-menu a:focus font-awesome-icon {
   font-size: 20px;
+  transition: color 0ms !important;
 }
 
 .nav-menu a span,

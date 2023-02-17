@@ -23,7 +23,6 @@ export default {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: var(--color-background);
   color: var(--color-heading);
   font-size: 14px;
   text-align: center;
