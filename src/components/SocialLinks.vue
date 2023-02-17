@@ -1,13 +1,16 @@
 <template>
   <div class="social-links">
-    <div class="social-icon-container" v-for="social in socialLinks">
-      <a  :class="social.name" :href="social.link" target="_blank">
-        <i :class="social.icon"></i>
+    <div v-for="social in socialLinks" class="social-icon-container">
+      <a :class="social.name" :href="social.link" target="_blank">
+        <font-awesome-icon :icon="social.icon"/>
       </a>
     </div>
   </div>
 </template>
 <script>
+import {my} from "../store/store";
+import {faFacebookF, faGithub, faInstagram, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
+
 const SocialLink = (name, link, icon) => {
   return {
     name: name, link: link, icon: icon
@@ -17,13 +20,14 @@ const SocialLink = (name, link, icon) => {
 export default {
   name: 'SocialLinks',
   data() {
-    return{
+    const socials = my.socials;
+    return {
       socialLinks: [
-        SocialLink('twitter', 'https://twitter.com/RajivaPavan', 'bx bxl-twitter'),
-        SocialLink('facebook', 'https://www.facebook.com/pavan.pitiwaduge', 'bx bxl-facebook'),
-        SocialLink('instagram', 'https://www.instagram.com/_pavan.0001/', 'bx bxl-instagram'),
-        SocialLink('linkedin', 'https://www.linkedin.com/in/pavan-pitiwaduge/', 'bx bxl-linkedin'),
-          SocialLink('github', 'https://github.com/rajivaPavan', 'bx bxl-github'),
+        SocialLink('twitter', socials.twitter, faTwitter),
+        SocialLink('facebook', socials.facebook, faFacebookF),
+        SocialLink('instagram', socials.instagram, faInstagram),
+        SocialLink('linkedin', socials.linkedin, faLinkedinIn),
+        SocialLink('github', socials.github, faGithub),
       ]
     }
   }

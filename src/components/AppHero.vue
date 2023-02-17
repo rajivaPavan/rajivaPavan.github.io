@@ -1,17 +1,15 @@
 <script>
-//TODO: optimize icons
 import TypingList from "./TypingList.vue";
 import SocialLinks from "./SocialLinks.vue";
-
-
+import {my} from "../store/store.js";
 
 export default {
   name: 'AppHero',
   components: {SocialLinks, TypingList},
   data() {
     return {
-      name: 'Pavan Pitiwaduge',
-      titles: ['an Engineering Student', 'a Developer', 'a Freelancer']
+      name: my.name,
+      titles: my.titles
     }
   },
   methods: {
@@ -91,7 +89,7 @@ export default {
   color: var(--color-heading);
   line-height: 1;
   margin-right: 20px;
-  transition: 0.3s;
+  transition: none;
 }
 :deep(.social-links a:hover) {
   color: var(--color-link-hover);

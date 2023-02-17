@@ -25,11 +25,7 @@ export default {
   },
   computed:{
     currentView() {
-      const currentPath = this.currentPath.slice(1); //remove the leading slash
-
-      // scroll to page top before changing the view
-      // window.scrollTo({ top: 0, behavior: 'auto' });
-
+      const currentPath = this.currentPath.slice(1);
       return routes["/" + currentPath] || Page404;
     },
   },

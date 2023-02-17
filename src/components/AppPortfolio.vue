@@ -1,5 +1,5 @@
 <template>
-  <section id="portfolio" class="portfolio section-bg">
+  <section id="portfolio" class="portfolio section-bg" ref="portfolio">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
@@ -17,12 +17,13 @@
         </div>
       </div>
 
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-        <div v-for="col in [...Array(3).keys()]" class="col-lg-4 col-md-6">
-          <div v-for="item in getPortfolioColItems(col)" class="portfolio-item">
+      <div class="portfolio-container-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <TransitionGroup name="fade" tag="div"
+                          id="portfolio-container">
+          <div v-for="item in portfolioItemsFiltered" :key="item" class="portfolio-item">
             <AppPortfolioItem :item="item"/>
           </div>
-        </div>
+        </TransitionGroup>
       </div>
     </div>
   </section>
@@ -33,35 +34,11 @@ import DocuSignWeb from '/assets/images/portfolio/web-docusign.png';
 import KardsApp from '/assets/images/portfolio/app-kards.jpg';
 import IntelliSurgery from '/assets/images/portfolio/web-intellisurgery.png';
 import TranslatorApp from '/assets/images/portfolio/app-translator.png';
-import PortfolioWeb from '/assets/images/portfolio/web-portfolio.png';
 import AppPortfolioItem from "./AppPortfolioItem.vue";
-
-class Portfolio {
-  static FilterAll = {name: 'All', filter: '*'};
-  static FilterApp = {name: 'App', filter: '.filter-app'};
-  static FilterWeb = {name: 'Web', filter: '.filter-web'};
-
-  static filter = (item, filter) => {
-    if (filter.filter === Portfolio.FilterAll.filter) return true;
-    return item.category.filter === filter.filter;
-  }
-}
-
-class PortfolioItem {
-  constructor({name, category, image, details}) {
-    this.name = name;
-    this.category = category;
-    this.image = image;
-    this.details = details;
-  }
-}
-
-class PortfolioItemDetails {
-  constructor({links, tech}) {
-    this.links = links;
-    this.tech = tech;
-  }
-}
+import {imageUrls} from "../store/urls.js";
+import {Portfolio, PortfolioItem, PortfolioItemDetails} from "../entities/portfolio.js";
+import {faGithub, faGooglePlay} from "@fortawesome/free-brands-svg-icons";
+import {faEarth} from "@fortawesome/free-solid-svg-icons";
 
 const projects = [
   new PortfolioItem({
@@ -70,15 +47,15 @@ const projects = [
     image: KardsApp,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://play.google.com/store/apps/details?id=games.kardsapp.cardgame', icon: 'bx bxl-play-store'},
-        {url: 'https://www.kardsapp.games', icon: 'bx bx-world'},
+        {url: 'https://play.google.com/store/apps/details?id=games.kardsapp.cardgame', icon: faGooglePlay},
+        {url: 'https://www.kardsapp.games', icon: faEarth},
       ],
       tech: [
         //flutter, webrtc, dotnet core, signalr, azure
-        {image: 'https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg'},
-        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},
-        {image: 'https://webrtc.github.io/webrtc-org/assets/images/webrtc-logo-vert-retro-dist.svg'},
-        {image: 'https://img.stackshare.io/service/4013/SignalR-logo.png'}
+        {image: imageUrls.flutter},
+        {image: imageUrls.dotNetCore},
+        {image: imageUrls.webrtc},
+        {image: imageUrls.signalR},
       ]
     })
   }),
@@ -88,10 +65,10 @@ const projects = [
     image: DocuSignWeb,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: 'bx bxl-github'},
+        {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: faGithub},
       ],
       tech: [
-        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},]
+        {image: imageUrls.dotNetCore},]
     }),
   }),
   new PortfolioItem({
@@ -100,12 +77,12 @@ const projects = [
     image: SOWeb,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://github.com/SpeechOlympiadXV/speecholympiadxv.github.io', icon: 'bx bxl-github'},
-        {url: 'https://speecholympiadxv.live/', icon: 'bx bx-world'},
+        {url: 'https://github.com/SpeechOlympiadXV/speecholympiadxv.github.io', icon: faGithub},
+        {url: 'https://speecholympiadxv.live/', icon: faEarth},
       ],
       tech: [
         //  vue3
-        {image: 'https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg'},
+        {image: imageUrls.vue_small},
       ]
     }),
   }),
@@ -115,11 +92,11 @@ const projects = [
     image: IntelliSurgery,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://github.com/rajivaPavan/IntelliSurgery', icon: 'bx bxl-github'},
+        {url: 'https://github.com/rajivaPavan/IntelliSurgery', icon: faGithub},
       ],
       tech: [
         //html, css3, bootstrap, javascript, dotnet core
-        {image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png'},
+        {image: imageUrls.dotNetCore},
       ]
     }),
   }),
@@ -129,12 +106,12 @@ const projects = [
     image: TranslatorApp,
     details: new PortfolioItemDetails({
       links: [
-        {url: 'https://github.com/rajivaPavan/TranslatorApp', icon: 'bx bxl-github'},
+        {url: 'https://github.com/rajivaPavan/TranslatorApp', icon: faGithub},
       ],
       tech: [
         //kolin, jetpack compose
-        {image: 'https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg'},
-        {image: 'https://www.vectorlogo.zone/logos/android/android-icon.svg'},
+        {image: imageUrls.kotlin},
+        {image: imageUrls.android},
       ]
     })
   }),
@@ -161,14 +138,6 @@ export default {
     isFilterActive(filter) {
       return this.currentFilter === filter;
     },
-    getPortfolioColItems(col) {
-      const items = this.portfolioItemsFiltered;
-      const colItems = [];
-      for (let i = col; i < items.length; i += 3) {
-        colItems.push(items[i]);
-      }
-      return colItems;
-    }
   },
   computed: {
     portfolioItemsFiltered() {
@@ -177,45 +146,128 @@ export default {
   },
 }
 </script>
-<style scoped>
-.portfolio .section-title p {
-  font-style: italic;
-  color: var(--color-text);
-}
+<style lang="scss" scoped>
+// Define color variables
+$color-background: var(--color-background);
+$color-border: var(--color-border);
+$color-primary-bright: var(--color-primary-bright);
+$color-text: var(--color-text);
+$color-link-hover: var(--color-link-hover);
 
-.portfolio .portfolio-item {
-  margin-bottom: 30px;
-}
+.portfolio {
+  .section-title {
+    p {
+      font-style: italic;
+      color: $color-text;
+    }
+  }
 
-.portfolio #portfolio-filters {
-  margin: 0 auto 25px auto;
-  list-style: none;
-  text-align: center;
-  background: var(--color-background);
-  border-radius: 50px;
-  padding: 2px 15px;
-}
+  #portfolio-filters {
+    margin: 0 auto 25px auto;
+    list-style: none;
+    text-align: center;
+    background: $color-background;
+    border-radius: 50px;
+    padding: 2px 15px;
 
-.portfolio #portfolio-filters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--color-text);
-  margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
-}
+    li {
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      text-transform: uppercase;
+      color: $color-text;
+      margin-bottom: 5px;
+      transition: all 0.3s ease-in-out;
 
-.portfolio #portfolio-filters li:hover,
-.portfolio #portfolio-filters li.filter-active {
-  color: var(--color-link-hover);
-}
+      &:hover,
+      &.filter-active {
+        color: $color-link-hover;
+      }
 
-.portfolio #portfolio-filters li:last-child {
-  margin-right: 0;
-}
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 
+  .portfolio-container-wrapper{
+    border-radius: 10px;
+    border: 1px solid $color-border;
+    padding: 10px;
+  }
+  #portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    max-height: 75vh;
+    border-radius: 10px;
+
+    .portfolio-item{
+      width: 33%;
+      margin-bottom:10px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+
+  // style scrollbar for desktop view. Move scrollbar a little bit to up from bottom
+  @media (min-width: 768px) {
+    #portfolio-container {
+      align-content: start;
+
+      &::-webkit-scrollbar {
+        height: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $color-primary-bright;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  // for mobile view one column of portfolio items is shown
+  @media (max-width: 768px) {
+    .portfolio-container-wrapper{
+      padding: 10px 0;
+    }
+    #portfolio-container {
+      flex-direction: row;
+      overflow-y: auto;
+      max-height: 70vh;
+      margin: -5px 5px 0;
+
+      .portfolio-item{
+        width: 100%;
+      }
+    }
+  }
+
+  // Define fade animations
+  .fade-move,
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+    transform: scale(0.01);
+  }
+
+  .fade-leave-active {
+    position: absolute;
+  }
+}
 </style>
