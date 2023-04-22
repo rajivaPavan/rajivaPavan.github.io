@@ -36,4 +36,10 @@ export const imageUrls = {
 
     //latex
     latex: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/LaTeX_logo.svg/1200px-LaTeX_logo.svg.png',
+
+    // socials
+    twitter: 'https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png',
+    facebook: 'https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/facebook_circle-512.png',
+    instagram: 'https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/instagram-512.png',
+    linkedin: 'https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/linkedin_circle-512.png',
 }
