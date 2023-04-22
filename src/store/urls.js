@@ -3,8 +3,8 @@ export const imageUrls = {
     //languages
     java: 'https://www.vectorlogo.zone/logos/java/java-icon.svg',
     cSharp: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/C_Sharp_wordmark.svg/1200px-C_Sharp_wordmark.svg.png',
-    cPlusPlus: 'https://www.vectorlogo.zone/logos/isocpp/isocpp-icon.svg',
-    c: 'https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg',
+    cPlusPlus: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg',
     python: 'https://www.vectorlogo.zone/logos/python/python-icon.svg',
     html: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png',
     css: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png',
@@ -27,10 +27,13 @@ export const imageUrls = {
 
     //mobile
     flutter: 'https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg',
-    android:'https://www.vectorlogo.zone/logos/android/android-icon.svg',
+    android:'https://upload.wikimedia.org/wikipedia/commons/6/64/Android_logo_2019_%28stacked%29.svg',
     kotlin: 'https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg',
 
     //real time communication
     webrtc: 'https://webrtc.github.io/webrtc-org/assets/images/webrtc-logo-vert-retro-dist.svg',
     signalR: 'https://img.stackshare.io/service/4013/SignalR-logo.png',
+
+    //latex
+    latex: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/LaTeX_logo.svg/1200px-LaTeX_logo.svg.png',
 }
