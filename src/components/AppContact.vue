@@ -130,21 +130,15 @@ export default {
   justify-content: center;
 }
 :deep(.social-links a) {
-  font-size: 20px;
-  display: inline-block;
-  background: var(--color-link);
-  color: var(--color-text-in-primary);
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  display: flex;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
+  width: 40px;
+  height: 40px;
+  /*border: 1px solid var(--color-border);*/
+  background-color: transparent !important;
 }
 
 </style>

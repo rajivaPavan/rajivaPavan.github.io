@@ -11,11 +11,23 @@
 <style lang="scss" scoped>
 .social-icon-container{
   a{
-    background-color: var(--color-link);
+    font-size: 20px;
+    display: inline-block;
+    background: var(--color-link);
+    color: var(--color-text-in-primary);
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
   }
   img{
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 }
 </style>
@@ -44,7 +56,7 @@ export default {
         SocialLink('facebook', socials.facebook, imageUrls.facebook),
         SocialLink('instagram', socials.instagram, imageUrls.instagram),
         SocialLink('linkedin', socials.linkedin, imageUrls.linkedin),
-        SocialLink('github', socials.github, imageUrls.github),
+        SocialLink('github', socials.github, imageUrls.githubSocial),
       ]
     }
     else{

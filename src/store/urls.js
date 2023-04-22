@@ -42,4 +42,5 @@ export const imageUrls = {
     facebook: 'https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/facebook_circle-512.png',
     instagram: 'https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/instagram-512.png',
     linkedin: 'https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/linkedin_circle-512.png',
+    githubSocial: 'https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/github-512.png',
 }
