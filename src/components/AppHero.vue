@@ -84,10 +84,10 @@ export default {
   display: flex;
 }
 :deep(.social-links a) {
-  font-size: 24px;
+  font-size: 24px !important;
   display: inline-block;
-  color: var(--color-heading);
-  line-height: 1;
+  color: var(--color-heading) !important;
+  background-color: transparent !important;
   margin-right: 20px;
   transition: none;
 }
