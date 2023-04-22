@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <SocialLinks/>
+          <SocialLinks colored="true"/>
         </div>
       </div>
 
@@ -138,15 +138,13 @@ export default {
   padding: 8px 0;
   margin-right: 4px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   width: 36px;
   height: 36px;
   transition: 0.3s;
 }
 
-:deep(.social-links a:hover) {
-  background: var(--color-link-hover);
-  color: var(--color-text-in-primary);
-  text-decoration: none;
-}
 </style>

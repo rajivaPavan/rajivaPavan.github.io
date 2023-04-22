@@ -86,7 +86,7 @@ export default {
 :deep(.social-links a) {
   font-size: 24px;
   display: inline-block;
-  color: var(--color-heading);
+  color: var(--color-heading) !important;
   line-height: 1;
   margin-right: 20px;
   transition: none;
