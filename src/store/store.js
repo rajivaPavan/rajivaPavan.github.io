@@ -8,7 +8,7 @@ export const my = {
     socials: {
         github: 'https://github.com/rajivaPavan',
         linkedin: 'https://www.linkedin.com/in/pavan-pitiwaduge/',
-        twitter: 'https://twitter.com/RajivaPavan',
+        twitter: 'https://twitter.com/_pavan0001',
         facebook: 'https://www.facebook.com/pavan.pitiwaduge',
         instagram: 'https://www.instagram.com/_pavan.0001/',
     }
