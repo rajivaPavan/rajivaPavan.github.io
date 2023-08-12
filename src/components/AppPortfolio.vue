@@ -30,12 +30,9 @@
 </template>
 <script>
 import SOWeb from '/assets/images/portfolio/web-so.jpeg';
-import DocuSignWeb from '/assets/images/portfolio/web-docusign.png';
-import KardsApp from '/assets/images/portfolio/app-kards.jpg';
+import KardsApp from '/assets/images/portfolio/app-kards-2.png';
 import ExMoApp from '/assets/images/portfolio/app-exmo.webp';
 import nanoProcessor from '/assets/images/portfolio/academic-nanoprocessor.jpg';
-import IntelliSurgery from '/assets/images/portfolio/web-intellisurgery.png';
-import TranslatorApp from '/assets/images/portfolio/app-translator.png';
 import AppPortfolioItem from "./AppPortfolioItem.vue";
 import {imageUrls} from "../store/urls.js";
 import {Portfolio, PortfolioItem, PortfolioItemDetails} from "../entities/portfolio.js";
@@ -107,18 +104,6 @@ const projects = [
     })
   }),
   new PortfolioItem({
-    name: 'DocuSign',
-    category: Portfolio.FilterWeb,
-    image: DocuSignWeb,
-    details: new PortfolioItemDetails({
-      links: [
-        {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: faGithub},
-      ],
-      tech: [
-        {image: imageUrls.dotNetCore},]
-    }),
-  }),
-  new PortfolioItem({
     name: 'Speech Olympiad XV Website',
     category: Portfolio.FilterWeb,
     image: SOWeb,
@@ -132,35 +117,6 @@ const projects = [
         {image: imageUrls.vue_small},
       ]
     }),
-  }),
-  new PortfolioItem({
-    name: 'IntelliSurgery',
-    category: Portfolio.FilterWeb,
-    image: IntelliSurgery,
-    details: new PortfolioItemDetails({
-      links: [
-        {url: 'https://github.com/rajivaPavan/IntelliSurgery', icon: faGithub},
-      ],
-      tech: [
-        //html, css3, bootstrap, javascript, dotnet core
-        {image: imageUrls.dotNetCore},
-      ]
-    }),
-  }),
-  new PortfolioItem({
-    name: 'Translator App',
-    category: Portfolio.FilterApp,
-    image: TranslatorApp,
-    details: new PortfolioItemDetails({
-      links: [
-        {url: 'https://github.com/rajivaPavan/TranslatorApp', icon: faGithub},
-      ],
-      tech: [
-        //kolin, jetpack compose
-        {image: imageUrls.kotlin},
-        {image: imageUrls.android},
-      ]
-    })
   }),
 ];
 
