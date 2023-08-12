@@ -92,7 +92,7 @@ const projects = [
     details: new PortfolioItemDetails({
       links: [
         {url: 'https://play.google.com/store/apps/details?id=games.kardsapp.cardgame', icon: faGooglePlay},
-        {url: 'https://www.kardsapp.games', icon: faEarth},
+        {url: 'https://kardsapp.github.io/', icon: faEarth},
       ],
       tech: [
         //flutter, webrtc, dotnet core, signalr, azure
