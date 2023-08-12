@@ -10,9 +10,12 @@ const languages = [
     {name: 'HTML', image: imageUrls.html},
     {name: 'CSS', image: imageUrls.css},
     {name: 'JavaScript', image: imageUrls.javascript},
+    {name:'TypeScript', image: imageUrls.typescript},
 ];
 
 const frontendFrameworks = [
+    {name:'Next.js', image: imageUrls.nextJs},
+    {name: 'React', image: imageUrls.reactJs},
     {name: 'Vue', image: imageUrls.vue},
     {name: 'Bootstrap', image: imageUrls.bootstrap},
 ];
@@ -32,6 +35,7 @@ const versionControl = [
 
 const mobile = [
     {name: 'Flutter', image: imageUrls.flutter},
+    {name: 'React Native', image: imageUrls.reactNative},
     {name: 'Android', image: imageUrls.android},
 ];
 
@@ -39,12 +43,12 @@ const misc = [
     {name: 'SignalR', image: imageUrls.signalR},
     {name: 'WebRTC', image: imageUrls.webrtc},
     {name: 'LaTeX', image: imageUrls.latex},
+    {name: 'ARCore', image: imageUrls.arcore},
 ];
 
 export const skillCategories= [
     //name and image from official sites of the technologies or from google images or wikipedia
-    {name: 'Backend', skills: backendFrameworks},
-    {name: 'Frontend', skills: frontendFrameworks},
+    {name: 'Web', skills: [...backendFrameworks,...frontendFrameworks,]},
     {name: 'Mobile', skills: mobile},
     {name: 'Databases', skills: databases},
     {name: 'Languages', skills: languages},

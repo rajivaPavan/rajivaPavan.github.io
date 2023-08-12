@@ -1,5 +1,5 @@
 <template>
-  <section id="portfolio" class="portfolio section-bg" ref="portfolio">
+  <section id="portfolio" ref="portfolio" class="portfolio section-bg">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
@@ -18,8 +18,8 @@
       </div>
 
       <div class="portfolio-container-wrapper" data-aos="fade-up" data-aos-delay="200">
-        <TransitionGroup name="fade" tag="div"
-                          id="portfolio-container">
+        <TransitionGroup id="portfolio-container" name="fade"
+                         tag="div">
           <div v-for="item in portfolioItemsFiltered" :key="item" class="portfolio-item">
             <AppPortfolioItem :item="item"/>
           </div>
@@ -30,10 +30,9 @@
 </template>
 <script>
 import SOWeb from '/assets/images/portfolio/web-so.jpeg';
-import DocuSignWeb from '/assets/images/portfolio/web-docusign.png';
-import KardsApp from '/assets/images/portfolio/app-kards.jpg';
-import IntelliSurgery from '/assets/images/portfolio/web-intellisurgery.png';
-import TranslatorApp from '/assets/images/portfolio/app-translator.png';
+import KardsApp from '/assets/images/portfolio/app-kards-2.png';
+import ExMoApp from '/assets/images/portfolio/app-exmo.webp';
+import nanoProcessor from '/assets/images/portfolio/academic-nanoprocessor.jpg';
 import AppPortfolioItem from "./AppPortfolioItem.vue";
 import {imageUrls} from "../store/urls.js";
 import {Portfolio, PortfolioItem, PortfolioItemDetails} from "../entities/portfolio.js";
@@ -41,6 +40,51 @@ import {faGithub, faGooglePlay} from "@fortawesome/free-brands-svg-icons";
 import {faEarth} from "@fortawesome/free-solid-svg-icons";
 
 const projects = [
+  new PortfolioItem(
+      {
+        name: "ExMo App",
+        category: Portfolio.FilterApp,
+        image: ExMoApp,
+        details: new PortfolioItemDetails({
+          links: [{
+            url: "https://exmo.uom.lk/app/",
+            icon: faEarth
+          }],
+          tech: [
+            {image: imageUrls.kotlin},
+            {image: imageUrls.android},
+            {image: imageUrls.reactNative},
+            {image: imageUrls.sceneView},
+          ]
+        })
+      }
+  ),
+  new PortfolioItem({
+    name: "CSE Poson WebAR App",
+    category: Portfolio.FilterWeb,
+    image: "https://cse-poson-ar.vercel.app/poson-web-back-v2-scaled.jpg",
+    details: new PortfolioItemDetails({
+      links: [
+        {url:"https://github.com/rajivaPavan/mindar_cse_poson.git", icon: faGithub},
+        {url: "https://cse-poson-ar.vercel.app", icon: faEarth},
+      ],
+      tech: [
+        {image: imageUrls.mindAR},
+      ]
+    })
+  }),
+    new PortfolioItem({
+      name:"4 Bit Nano Processor",
+      category: Portfolio.FilterAcademic,
+      image:nanoProcessor,
+      details: new PortfolioItemDetails({
+        links: [
+          {url:"https://github.com/rajivaPavan/Nanoprocessor-Design-Project", icon: faGithub},
+        ],
+        tech: [
+        ]
+      })
+    }),
   new PortfolioItem({
     name: 'Kards',
     category: Portfolio.FilterApp,
@@ -48,7 +92,7 @@ const projects = [
     details: new PortfolioItemDetails({
       links: [
         {url: 'https://play.google.com/store/apps/details?id=games.kardsapp.cardgame', icon: faGooglePlay},
-        {url: 'https://www.kardsapp.games', icon: faEarth},
+        {url: 'https://kardsapp.github.io/', icon: faEarth},
       ],
       tech: [
         //flutter, webrtc, dotnet core, signalr, azure
@@ -58,18 +102,6 @@ const projects = [
         {image: imageUrls.signalR},
       ]
     })
-  }),
-  new PortfolioItem({
-    name: 'DocuSign',
-    category: Portfolio.FilterWeb,
-    image: DocuSignWeb,
-    details: new PortfolioItemDetails({
-      links: [
-        {url: 'https://github.com/rajivaPavan/DocuSignWeb', icon: faGithub},
-      ],
-      tech: [
-        {image: imageUrls.dotNetCore},]
-    }),
   }),
   new PortfolioItem({
     name: 'Speech Olympiad XV Website',
@@ -86,35 +118,6 @@ const projects = [
       ]
     }),
   }),
-  new PortfolioItem({
-    name: 'IntelliSurgery',
-    category: Portfolio.FilterWeb,
-    image: IntelliSurgery,
-    details: new PortfolioItemDetails({
-      links: [
-        {url: 'https://github.com/rajivaPavan/IntelliSurgery', icon: faGithub},
-      ],
-      tech: [
-        //html, css3, bootstrap, javascript, dotnet core
-        {image: imageUrls.dotNetCore},
-      ]
-    }),
-  }),
-  new PortfolioItem({
-    name: 'Translator App',
-    category: Portfolio.FilterApp,
-    image: TranslatorApp,
-    details: new PortfolioItemDetails({
-      links: [
-        {url: 'https://github.com/rajivaPavan/TranslatorApp', icon: faGithub},
-      ],
-      tech: [
-        //kolin, jetpack compose
-        {image: imageUrls.kotlin},
-        {image: imageUrls.android},
-      ]
-    })
-  }),
 ];
 
 export default {
@@ -124,9 +127,7 @@ export default {
     return {
       currentFilter: Portfolio.FilterAll,
       portfolioFilters: [
-        Portfolio.FilterAll,
-        Portfolio.FilterApp,
-        Portfolio.FilterWeb
+          ...Portfolio.filters,
       ],
       portfolioItems: projects
     }
@@ -193,11 +194,12 @@ $color-link-hover: var(--color-link-hover);
     }
   }
 
-  .portfolio-container-wrapper{
+  .portfolio-container-wrapper {
     border-radius: 10px;
     border: 1px solid $color-border;
     padding: 10px;
   }
+
   #portfolio-container {
     display: flex;
     flex-wrap: wrap;
@@ -207,9 +209,9 @@ $color-link-hover: var(--color-link-hover);
     max-height: 75vh;
     border-radius: 10px;
 
-    .portfolio-item{
+    .portfolio-item {
       width: 33%;
-      margin-bottom:10px;
+      margin-bottom: 10px;
       margin-left: 5px;
       margin-right: 5px;
     }
@@ -238,7 +240,7 @@ $color-link-hover: var(--color-link-hover);
 
   // for mobile view one column of portfolio items is shown
   @media (max-width: 768px) {
-    .portfolio-container-wrapper{
+    .portfolio-container-wrapper {
       padding: 10px 0;
     }
     #portfolio-container {
@@ -247,7 +249,7 @@ $color-link-hover: var(--color-link-hover);
       max-height: 70vh;
       margin: -5px 5px 0;
 
-      .portfolio-item{
+      .portfolio-item {
         width: 100%;
       }
     }
