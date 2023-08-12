@@ -47,4 +47,11 @@ export const imageUrls = {
     instagram: 'https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/instagram-512.png',
     linkedin: 'https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/linkedin_circle-512.png',
     githubSocial: 'https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/github-512.png',
+
+    // augmented reality
+    arcore: 'https://developers.google.com/static/ar/images/logo.svg',
+    mindAR: 'https://hiukim.github.io/mind-ar-js-doc/img/favicon.png',
+    sceneView: 'https://avatars.githubusercontent.com/u/92221392?s=200&v=4',
+
+    // digital design
 }

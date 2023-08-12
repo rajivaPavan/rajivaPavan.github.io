@@ -43,6 +43,7 @@ const misc = [
     {name: 'SignalR', image: imageUrls.signalR},
     {name: 'WebRTC', image: imageUrls.webrtc},
     {name: 'LaTeX', image: imageUrls.latex},
+    {name: 'ARCore', image: imageUrls.arcore},
 ];
 
 export const skillCategories= [
