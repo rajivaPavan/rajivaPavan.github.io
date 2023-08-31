@@ -1,9 +1,6 @@
 <template>
   <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
-      <div class="d-flex flex-column align-items-center mb-5 justify-content-center" id="freelance">
-        <h1 class="text-center"><strong>I'm <span class="available">Available</span> for freelancing</strong></h1>
-      </div>
 
       <div class="section-title">
         <h2>Contact Me</h2>
