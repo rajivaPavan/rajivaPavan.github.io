@@ -4,7 +4,7 @@ export const my = {
     nameWithInitials: 'R.P.Pitiwaduge',
     email: 'pavanpitiwaduge@outlook.com',
     phone: '+94 77 540 5059',
-    titles: ['an Engineering Student', 'a Developer', 'a Freelancer'],
+    titles: ['a Computer Science & Engineering Undergraduate', 'a Web Developer', 'a Flutter Developer'],
     socials: {
         github: 'https://github.com/rajivaPavan',
         linkedin: 'https://www.linkedin.com/in/pavan-pitiwaduge/',
