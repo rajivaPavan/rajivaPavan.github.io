@@ -1,31 +1,38 @@
 <template>
-  <section id="contact" class="contact">
-    <div class="container" data-aos="fade-up">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <section id="contact" class="contact">
+          <div class="container" data-aos="fade-up">
 
-      <div class="section-title">
-        <h2>Contact Me</h2>
-      </div>
+            <div class="section-title">
+              <h2>Contact Me</h2>
+            </div>
 
-      <div class="row justify-content-center">
-        <div class="col-lg-5 mb-3 mb-lg-0">
-          <div class="info d-flex flex-column px-3 px-lg-2
-            flex-lg-row justify-content-lg-between align-items-lg-center">
-
-            <div v-for="method in contactMethods" :class="method.contactClass" class="mb-4 mb-lg-0" @click="method.contact()">
-              <div class="ci-container"><font-awesome-icon :icon="method.icon" class="contact-icon"/></div>
-              <h4 class="text-capitalize">{{ method.name }}:</h4>
-              <p>{{method.value}}</p>
+            <div class="info d-flex justify-content-center">
+              <div v-for="method in contactMethods"
+                   class="mb-2" role="button" @click="method.contact()">
+                <div class="ci-container"><font-awesome-icon :icon="method.icon" class="contact-icon"/></div>
+                <div class="name text-capitalize">{{ method.name }}:</div>
+                <div class="value">{{method.value}}</div>
+              </div>
             </div>
 
           </div>
-        </div>
-        <div class="col-lg-6">
-          <SocialLinks colored="true"/>
-        </div>
+        </section>
       </div>
-
+      <div class="col-12 col-md-6">
+        <section id="socials" class="socials">
+          <div class="container" data-aos="fade-up">
+            <div class="section-title">
+              <h2>Socials</h2>
+            </div>
+            <SocialLinks colored="true"/>
+          </div>
+        </section>
+      </div>
     </div>
-  </section>
+  </div>
 </template>
 <script>
 import SocialLinks from "./SocialLinks.vue";
@@ -42,9 +49,6 @@ export default {
         contact: () => {
           window.open('mailto:' + this.contactMethods[0].value);
         }},
-        {name: 'phone', value: my.phone, icon: faPhone, contactClass : 'phone', contact: () => {
-          window.open('tel:'+ this.contactMethods[1].value);
-        }}
           ]
     }
   },
@@ -70,17 +74,20 @@ export default {
   #freelance{
     height: 175px;
   }
+  section{
+    padding-block: 1rem;
+  }
+  section:last-of-type{
+    margin-bottom: 2rem;
+  }
 }
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
-.contact .info {
-  width: 100%;
-}
-
 .contact .info .ci-container {
   color: var(--color-primary);
   float: left;
+  transform: translateY(25%);
   width: 44px;
   height: 44px;
   background: var(--vt-c-white);
@@ -95,7 +102,7 @@ export default {
   color: var(--color-primary);
 }
 
-.contact .info h4 {
+.contact .info .name {
   padding: 0 0 0 60px;
   font-size: 22px;
   font-weight: 600;
@@ -103,7 +110,7 @@ export default {
   color: var(--color-text);
 }
 
-.contact .info p {
+.contact .info .value {
   padding: 0 0 0 60px;
   margin-bottom: 0;
   font-size: 14px;
@@ -132,8 +139,8 @@ export default {
   display: flex !important;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 3rem;
+  height: 3rem;
   /*border: 1px solid var(--color-border);*/
   background-color: transparent !important;
 }
