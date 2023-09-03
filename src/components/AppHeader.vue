@@ -1,6 +1,15 @@
 <template>
   <!-- ======= Mobile nav toggle button ======= -->
-  <font-awesome-icon :icon="navToggleIcon" class="mobile-nav-toggle d-lg-none" @click="navToggle()"/>
+
+  <div class="mobile-nav-toggle d-lg-none" @click="navToggle()">
+    <div class="hamburger">
+      <button :class="isOpen ? 'hamburger_active' : ''" type="button" class="hamburger_button">
+        <span class="hamburger_inner"></span>
+        <span class="hamburger_inner"></span>
+        <span class="hamburger_inner"></span>
+      </button>
+    </div>
+  </div>
 
   <header id="header" class="d-flex flex-column justify-content-center">
     <nav id="navbar" class="navbar nav-menu">
@@ -27,7 +36,8 @@ export default {
   },
   data() {
     return {
-      menuIcon: faBars
+      menuIcon: faBars,
+      isOpen: false
     }
   },
   computed: {
@@ -38,7 +48,7 @@ export default {
   methods:{
     navToggle(){
       document.querySelector('body').classList.toggle('mobile-nav-active');
-      this.menuIcon = this.menuIcon === faBars ? faTimes : faBars;
+      this.isOpen = !this.isOpen;
     }
   },
   mounted() {
@@ -70,7 +80,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 #header {
   position: fixed;
@@ -189,21 +199,6 @@ export default {
 /**
 * Mobile Navigation
 */
-.mobile-nav-toggle {
-  position: fixed;
-  right: 10px;
-  top: 10px;
-  z-index: 9998;
-  border: 0;
-  background: none;
-  outline: none !important;
-  line-height: 0;
-  cursor: pointer;
-  border-radius: 50px;
-  padding: 5px 5px;
-  color: var(--color-text);
-  font-size: 23px;
-}
 
 .mobile-nav-active {
   overflow: hidden;
@@ -218,4 +213,76 @@ export default {
   background: var(--color-primary-bright);
 }
 
+$hamburger-color: var(--color-text);
+
+.hamburger{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+
+  &_button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      .hamburger_inner {
+        background-color: $hamburger-color;
+      }
+    }
+
+    .hamburger_inner {
+      width: 1.5rem;
+      height: 0.2rem;
+      background-color: $hamburger-color;
+      border-radius: 0.2rem;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      transform-origin: 1px;
+
+      &:first-child {
+        transform: rotate(0);
+      }
+
+      &:nth-child(2) {
+        opacity: 1;
+        transform: rotate(0);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  &_active {
+    .hamburger_inner {
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+}
 </style>
