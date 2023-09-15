@@ -58,8 +58,6 @@ export default {
 
 <style scoped>
 #freelance{
-  background: url("../assets/img/freelance.jpg") right 66% no-repeat;
-  background-size: cover;
   opacity: 0.95;
   height: 250px;
 }

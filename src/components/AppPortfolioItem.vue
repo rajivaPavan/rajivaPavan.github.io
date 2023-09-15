@@ -1,7 +1,7 @@
 <template>
   <h4 class="text-center topic">{{ item.name }}</h4>
   <div class="portfolio-wrap">
-    <img :src="item.image" :alt="item.name" class="img-fluid img-thumbnail">
+    <img :src="item.image" :alt="item.name" class="img-fluid img-thumbnail" loading="lazy">
     <div class="portfolio-info">
       <h4>{{ item.name }}</h4>
       <p>{{ item.category.name}}</p>
