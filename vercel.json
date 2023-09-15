@@ -1,0 +1,6 @@
+{
+    "redirects": [
+      { "source": "/(.*)", "destination": "index.html", "permanent": false },
+      { "source": "", "destination":"/#/404" , "permanent": false }
+    ]
+  }

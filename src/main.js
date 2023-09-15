@@ -15,7 +15,7 @@ const router = createRouter({
             component: PageHome,
         },
         {
-            path: "/:pathMatch(.*)*",
+            path: "/#/404",
             name: "404",
             component: () => import("./pages/Page404.vue"),
         },
