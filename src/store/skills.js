@@ -15,9 +15,9 @@ const languages = [
 
 const frontendFrameworks = [
     {name:'Next.js', image: imageUrls.nextJs},
-    {name: 'React', image: imageUrls.reactJs},
     {name: 'Vue', image: imageUrls.vue},
     {name: 'Bootstrap', image: imageUrls.bootstrap},
+    {name: 'Tailwind CSS', image: imageUrls.tailwind}
 ];
 
 const backendFrameworks = [
@@ -35,7 +35,6 @@ const versionControl = [
 
 const mobile = [
     {name: 'Flutter', image: imageUrls.flutter},
-    {name: 'React Native', image: imageUrls.reactNative},
     {name: 'Android', image: imageUrls.android},
 ];
 
