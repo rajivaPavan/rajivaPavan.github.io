@@ -12,7 +12,7 @@
             <div class="text-center skill-category-name">{{category.name}}</div>
             <div class="skills">
               <div v-for="skill in category.skills" class="skill">
-                <img :src="skill.image" class="img-thumbnail border-0 skill-image" :alt="skill.name">
+                <img loading="lazy" :src="skill.image" class="img-thumbnail border-0 skill-image" :alt="skill.name">
                 <h6 class="text-center skill-name">{{skill.name}}</h6>
               </div>
             </div>

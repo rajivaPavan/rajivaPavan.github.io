@@ -29,6 +29,13 @@
     height: 100%;
     object-fit: contain;
   }
+  svg{
+    transition: all 0.2s ease-in-out;
+  }
+  svg:hover{
+    color: var(--color-link-hover);
+    scale: 1.5;
+  }
 }
 </style>
 <script>
