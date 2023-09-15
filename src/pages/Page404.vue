@@ -6,7 +6,7 @@
       <h2 class="text-center">Page not found</h2>
       <img class="mx-auto mt-3" :src="gif" alt="Image also not found 😓" loading="lazy">
     </div>
-    <h2 class="text-center mt-auto"><button class="btn"><a href="https://pavanpitiwaduge.me">Back home 🏠🥹</a></button></h2>
+    <h2 class="text-center mt-auto"><button class="btn"><a href="/">Back home 🏠🥹</a></button></h2>
   </main>
 </template>
 <style scoped>
