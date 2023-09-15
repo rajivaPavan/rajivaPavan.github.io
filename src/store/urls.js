@@ -20,7 +20,7 @@ export const imageUrls = {
     dotNetCore : 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png',
     bootstrap: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png',
     jquery: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/JQuery-Logo.svg',
-
+    tailwind: 'https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg',
     //databases
     mysql: 'https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg',
 
