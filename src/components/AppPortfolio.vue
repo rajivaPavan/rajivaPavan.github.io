@@ -30,7 +30,7 @@
 </template>
 <script>
 import SOWeb from '/assets/images/portfolio/web-so.jpeg';
-import KardsApp from '/assets/images/portfolio/app-kards-2.png';
+import KardsApp from '/assets/images/portfolio/app-kards-2.jpg';
 import ExMoApp from '/assets/images/portfolio/app-exmo.webp';
 import nanoProcessor from '/assets/images/portfolio/academic-nanoprocessor.jpg';
 import AppPortfolioItem from "./AppPortfolioItem.vue";
