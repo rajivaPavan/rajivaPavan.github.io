@@ -3,6 +3,7 @@
 </template>
 
 <script>
+// TODO: Work on this
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
