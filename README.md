@@ -1,14 +1,9 @@
 # rajivaPavan.github.io
 This is live at [pavanpitiwaduge.me](https://www.pavanpitiwaduge.me/)
 
-Core technologies used 
+## Core technologies used 
 
-<p style="display: flex; align-items: center;">
-  <img src="https://vuejs.org/images/logo.png" height="100px" alt="Vue logo">
-  <img src="https://vitejs.dev/logo-with-shadow.png" height="100px" alt="vite logo">
-</p>
-
-
+![](https://skillicons.dev/icons?i=vue,vite)
 
 ## Quick Start
 
@@ -24,3 +19,12 @@ $ npm install
 
 # start development server
 $ npm run dev
+```
+
+## Deployment
+
+Deployed in [Cloudflare Pages](https://dash.cloudflare.com/) 
+
+[![](https://skillicons.dev/icons?i=cloudflare)](https://dash.cloudflare.com/)
+
+at https://rajivapavan-github-io.pages.dev/
