@@ -8,8 +8,8 @@
 
       <div class="row skills-content justify-content-center">
         <div class="col-12 col-lg-11 skill-categories">
-          <div class="skill-category" v-for="category in skillCategories">
-            <div class="text-center skill-category-name">{{category.name}}</div>
+          <div class="skill-category glass [--glass-reflex-opacity:0]" v-for="category in skillCategories">
+            <div class="text-center skill-category-name px-2 rounded">{{category.name}}</div>
             <div class="skills">
               <div v-for="skill in category.skills" class="skill">
                 <img loading="lazy" :src="skill.image" class="img-thumbnail border-0 skill-image" :alt="skill.name">
