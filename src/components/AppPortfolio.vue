@@ -43,6 +43,10 @@ const projects = [
   new PortfolioItem(
       {
         name: "ExMo App",
+        description: "The official EXMO 2023 app, " +
+            "designed to elevate your experience at the University of Moratuwa's flagship technological exhibition. " +
+            "As a developer in this project, I spearheaded the " +
+            "integration of Augmented Reality (AR) features of the app.",
         category: Portfolio.FilterApp,
         image: ExMoApp,
         details: new PortfolioItemDetails({
@@ -61,6 +65,8 @@ const projects = [
   ),
     new PortfolioItem({
       name:"4 Bit Nano Processor",
+      description: "Designed a 4-bit nano-processor for the course module Computer Organization & Digital " +
+          "Design in the second semester at the University of Moratuwa.",
       category: Portfolio.FilterAcademic,
       image:nanoProcessor,
       details: new PortfolioItemDetails({
@@ -73,6 +79,9 @@ const projects = [
     }),
   new PortfolioItem({
     name: 'Kards',
+    description: "Kards is a card game app that allows you to play card games with your friends. " +
+        "Led the team that built this real-time multiplayer mobile game application with an inbuilt audio call " +
+        "feature. (Currently production is halted)",
     category: Portfolio.FilterApp,
     image: KardsApp,
     details: new PortfolioItemDetails({
@@ -91,6 +100,9 @@ const projects = [
   }),
   new PortfolioItem({
     name: 'Speech Olympiad XV Website',
+    description: "The official website of Speech Olympiad, " +
+        "the premier English speech competition organized by the Gavel Club of the University of " +
+        "Moratuwa. I was a developer in the team that started the initial development of the website in 2022",
     category: Portfolio.FilterWeb,
     image: SOWeb,
     details: new PortfolioItemDetails({
