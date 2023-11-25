@@ -59,20 +59,6 @@ const projects = [
         })
       }
   ),
-  new PortfolioItem({
-    name: "CSE Poson WebAR App",
-    category: Portfolio.FilterWeb,
-    image: "https://cse-poson-ar.vercel.app/poson-web-back-v2-scaled.jpg",
-    details: new PortfolioItemDetails({
-      links: [
-        {url:"https://github.com/rajivaPavan/mindar_cse_poson.git", icon: faGithub},
-        {url: "https://cse-poson-ar.vercel.app", icon: faEarth},
-      ],
-      tech: [
-        {image: imageUrls.mindAR},
-      ]
-    })
-  }),
     new PortfolioItem({
       name:"4 Bit Nano Processor",
       category: Portfolio.FilterAcademic,
@@ -110,7 +96,7 @@ const projects = [
     details: new PortfolioItemDetails({
       links: [
         {url: 'https://github.com/SpeechOlympiadXV/speecholympiadxv.github.io', icon: faGithub},
-        {url: 'https://speecholympiadxv.live/', icon: faEarth},
+        {url: 'https://speecholympiad.live/', icon: faEarth},
       ],
       tech: [
         //  vue3
@@ -196,7 +182,7 @@ $color-link-hover: var(--color-link-hover);
 
   .portfolio-container-wrapper {
     border-radius: 10px;
-    border: 1px solid $color-border;
+    //border: 1px solid $color-border;
     padding: 10px;
   }
 
@@ -265,7 +251,7 @@ $color-link-hover: var(--color-link-hover);
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;
-    transform: scale(0.01);
+    transform: scale(0.0);
   }
 
   .fade-leave-active {

@@ -1,9 +1,11 @@
 <template>
   <h4 class="text-center topic">{{ item.name }}</h4>
-  <div class="portfolio-wrap">
-    <img :src="item.image" :alt="item.name" class="img-fluid img-thumbnail" loading="lazy">
+  <div class="portfolio-wrap mockup-browser border border-base-300">
+    <div class="mockup-browser-toolbar">
+      <div class="input border border-base-300">{{item.link.url}}</div>
+    </div>
+        <img :src="item.image" :alt="item.name" class="img-fluid" loading="lazy">
     <div class="portfolio-info">
-      <h4>{{ item.name }}</h4>
       <p>{{ item.category.name}}</p>
       <div class="portfolio-links">
         <a v-for="link in item.details.links" :href="link.url" target="_blank">
@@ -44,7 +46,10 @@ export default {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background: var(--color-background-mute);
+
+  .mockup-browser-toolbar{
+    color: var(--color-text);
+  }
 
   &::before {
     content: "";

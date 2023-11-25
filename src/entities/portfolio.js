@@ -17,6 +17,7 @@ export class PortfolioItem {
         this.name = name;
         this.category = category;
         this.image = image;
+        this.link = details.links[0];
         this.details = details;
     }
 }
