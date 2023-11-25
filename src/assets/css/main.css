@@ -45,6 +45,10 @@ h6 {
     font-family: var(--font-heading);
 }
 
+p{
+    font-family: Lato, serif;
+}
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/

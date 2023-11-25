@@ -18,9 +18,9 @@
       </div>
 
       <div class="portfolio-container-wrapper" data-aos="fade-up" data-aos-delay="200">
-        <TransitionGroup id="portfolio-container" name="fade"
+        <TransitionGroup name="fade"
                          tag="div">
-          <div v-for="item in portfolioItemsFiltered" :key="item" class="portfolio-item">
+          <div v-for="item in portfolioItemsFiltered" :key="item" class="portfolio-item my-3">
             <AppPortfolioItem :item="item"/>
           </div>
         </TransitionGroup>
@@ -182,46 +182,7 @@ $color-link-hover: var(--color-link-hover);
 
   .portfolio-container-wrapper {
     border-radius: 10px;
-    //border: 1px solid $color-border;
     padding: 10px;
-  }
-
-  #portfolio-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    max-height: 75vh;
-    border-radius: 10px;
-
-    .portfolio-item {
-      width: 33%;
-      margin-bottom: 10px;
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-  }
-
-  // style scrollbar for desktop view. Move scrollbar a little bit to up from bottom
-  @media (min-width: 768px) {
-    #portfolio-container {
-      align-content: start;
-
-      &::-webkit-scrollbar {
-        height: 5px;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: transparent;
-        border-radius: 10px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: $color-primary-bright;
-        border-radius: 5px;
-      }
-    }
   }
 
   // for mobile view one column of portfolio items is shown
