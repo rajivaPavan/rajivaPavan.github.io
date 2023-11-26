@@ -23,7 +23,7 @@
     </div>
     <div class="portfolio-info px-2 py-3 md:my-2 md:mx-3 flex flex-column justify-center">
       <h4>{{item.name}}</h4>
-      <p class="line-clamp-5 md:line-clamp-3 text-white-60">
+      <p class="line-clamp-5 md:line-clamp-3 text-white-60" style="font-size: 0.9em;">
         {{item.description}}
       </p>
       <div class="portfolio-links mb-2">

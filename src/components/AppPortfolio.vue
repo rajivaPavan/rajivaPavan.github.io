@@ -224,7 +224,7 @@ $color-link-hover: var(--color-link-hover);
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;
-    transform: scale(0.0);
+    transform: scale(0.01);
   }
 
   .fade-leave-active {
