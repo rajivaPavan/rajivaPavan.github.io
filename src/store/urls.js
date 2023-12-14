@@ -16,7 +16,7 @@ export const imageUrls = {
     vue_small: 'https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg',
     vue: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png',
     reactJs: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png',
-    nextJs: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1200px-Nextjs-logo.svg.png',
+    nextJs: '/assets/logos/next-js.svg',
     dotNetCore : 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png',
     bootstrap: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png',
     jquery: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/JQuery-Logo.svg',

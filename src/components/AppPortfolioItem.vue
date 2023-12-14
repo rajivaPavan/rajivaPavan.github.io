@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex">
+  <div class="md:flex lg:px-20">
     <div class="w-full md:w-2/5">
       <div class="portfolio-item-wrap aspect-video mockup-browser border border-base-300">
         <div class="mockup-browser-toolbar">
@@ -23,7 +23,7 @@
     </div>
     <div class="portfolio-info px-2 py-3 md:my-2 md:mx-3 flex flex-column justify-center">
       <h4>{{item.name}}</h4>
-      <p class="line-clamp-5 md:line-clamp-3 text-white-60" style="font-size: 0.9em;">
+      <p class="line-clamp-5 md:line-clamp-3 text-white-60">
         {{item.description}}
       </p>
       <div class="portfolio-links mb-2">
