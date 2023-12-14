@@ -12,7 +12,7 @@
   </div>
 
   <header id="header" class="d-flex flex-column justify-content-center">
-    <nav id="navbar" class="navbar nav-menu">
+    <nav id="navbar" class="nav-menu flex flex-column">
       <ul>
         <li v-for="(section,i) in sections">
           <a v-if="section.hash" :href="section.hash" class="nav-link" :class="i===0 ? ' active' :''">

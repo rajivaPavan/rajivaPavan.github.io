@@ -1,9 +1,9 @@
 <template>
   <div class="social-links">
     <div v-for="social in socialLinks" class="social-icon-container">
-      <a :class="social.name" :href="social.link" target="_blank">
-        <img v-if="colored" :src="social.icon" :alt="social.link">
-        <font-awesome-icon v-else :icon="social.icon"/>
+      <a :class="social.name"  :href="social.link" target="_blank">
+        <img v-if="colored" class="hover:scale-125 transition-transform duration-300" :src="social.icon" :alt="social.link">
+        <font-awesome-icon class="hover:scale-[2] transition-transform duration-300" v-else :icon="social.icon"/>
       </a>
     </div>
   </div>
@@ -34,7 +34,6 @@
   }
   svg:hover{
     color: var(--color-link-hover);
-    scale: 1.5;
   }
 }
 </style>

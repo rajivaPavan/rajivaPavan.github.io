@@ -18,9 +18,9 @@
       </div>
 
       <div class="portfolio-container-wrapper" data-aos="fade-up" data-aos-delay="200">
-        <TransitionGroup id="portfolio-container" name="fade"
+        <TransitionGroup name="fade"
                          tag="div">
-          <div v-for="item in portfolioItemsFiltered" :key="item" class="portfolio-item">
+          <div v-for="item in portfolioItemsFiltered" :key="item" class="portfolio-item my-3">
             <AppPortfolioItem :item="item"/>
           </div>
         </TransitionGroup>
@@ -43,6 +43,10 @@ const projects = [
   new PortfolioItem(
       {
         name: "ExMo App",
+        description: "The official EXMO 2023 app, " +
+            "designed to elevate your experience at the University of Moratuwa's flagship technological exhibition. " +
+            "As a developer in this project, I spearheaded the " +
+            "integration of Augmented Reality (AR) features of the app.",
         category: Portfolio.FilterApp,
         image: ExMoApp,
         details: new PortfolioItemDetails({
@@ -59,22 +63,10 @@ const projects = [
         })
       }
   ),
-  new PortfolioItem({
-    name: "CSE Poson WebAR App",
-    category: Portfolio.FilterWeb,
-    image: "https://cse-poson-ar.vercel.app/poson-web-back-v2-scaled.jpg",
-    details: new PortfolioItemDetails({
-      links: [
-        {url:"https://github.com/rajivaPavan/mindar_cse_poson.git", icon: faGithub},
-        {url: "https://cse-poson-ar.vercel.app", icon: faEarth},
-      ],
-      tech: [
-        {image: imageUrls.mindAR},
-      ]
-    })
-  }),
     new PortfolioItem({
       name:"4 Bit Nano Processor",
+      description: "Designed a 4-bit nano-processor for the course module Computer Organization & Digital " +
+          "Design in the second semester at the University of Moratuwa.",
       category: Portfolio.FilterAcademic,
       image:nanoProcessor,
       details: new PortfolioItemDetails({
@@ -87,6 +79,9 @@ const projects = [
     }),
   new PortfolioItem({
     name: 'Kards',
+    description: "Kards is a card game app that allows you to play card games with your friends. " +
+        "Led the team that built this real-time multiplayer mobile game application with an inbuilt audio call " +
+        "feature. (Currently production is halted)",
     category: Portfolio.FilterApp,
     image: KardsApp,
     details: new PortfolioItemDetails({
@@ -105,12 +100,15 @@ const projects = [
   }),
   new PortfolioItem({
     name: 'Speech Olympiad XV Website',
+    description: "The official website of Speech Olympiad, " +
+        "the premier English speech competition organized by the Gavel Club of the University of " +
+        "Moratuwa. I was a developer in the team that started the initial development of the website in 2022",
     category: Portfolio.FilterWeb,
     image: SOWeb,
     details: new PortfolioItemDetails({
       links: [
         {url: 'https://github.com/SpeechOlympiadXV/speecholympiadxv.github.io', icon: faGithub},
-        {url: 'https://speecholympiadxv.live/', icon: faEarth},
+        {url: 'https://speecholympiad.live/', icon: faEarth},
       ],
       tech: [
         //  vue3
@@ -196,46 +194,7 @@ $color-link-hover: var(--color-link-hover);
 
   .portfolio-container-wrapper {
     border-radius: 10px;
-    border: 1px solid $color-border;
     padding: 10px;
-  }
-
-  #portfolio-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    max-height: 75vh;
-    border-radius: 10px;
-
-    .portfolio-item {
-      width: 33%;
-      margin-bottom: 10px;
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-  }
-
-  // style scrollbar for desktop view. Move scrollbar a little bit to up from bottom
-  @media (min-width: 768px) {
-    #portfolio-container {
-      align-content: start;
-
-      &::-webkit-scrollbar {
-        height: 5px;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: transparent;
-        border-radius: 10px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: $color-primary-bright;
-        border-radius: 5px;
-      }
-    }
   }
 
   // for mobile view one column of portfolio items is shown

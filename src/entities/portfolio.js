@@ -13,10 +13,12 @@ export class Portfolio {
 }
 
 export class PortfolioItem {
-    constructor({name, category, image, details}) {
+    constructor({name, description, category, image, details}) {
         this.name = name;
+        this.description = description;
         this.category = category;
         this.image = image;
+        this.link = details.links[0];
         this.details = details;
     }
 }

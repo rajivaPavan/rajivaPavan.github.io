@@ -11,9 +11,13 @@
           <div class="skill-category" v-for="category in skillCategories">
             <div class="text-center skill-category-name">{{category.name}}</div>
             <div class="skills">
-              <div v-for="skill in category.skills" class="skill">
-                <img loading="lazy" :src="skill.image" class="img-thumbnail border-0 skill-image" :alt="skill.name">
-                <h6 class="text-center skill-name">{{skill.name}}</h6>
+              <div  v-for="skill in category.skills" class="skill">
+                <a :href="skill.link" target="_blank">
+                  <img loading="lazy" :src="skill.image" class="img-thumbnail border-0 skill-image" :alt="skill.name">
+                </a>
+                <a :href="skill.link" target="_blank" class="text-decoration-none" >
+                  <h6 class="text-center skill-name text-decoration-none">{{skill.name}}</h6>
+                </a>
               </div>
             </div>
           </div>
@@ -23,7 +27,7 @@
   </section>
 </template>
 <script>
-import {skillCategories} from "../store/skills.js";
+import {skillCategories} from "@/store/skills";
 
 export default {
   name: 'AppSkills',
@@ -84,6 +88,7 @@ export default {
   padding: 0;
   text-align: center;
   width: 100%;
+  color: var(--color-text) !important;
 }
 
 /*Mobile*/
